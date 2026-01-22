@@ -48,7 +48,7 @@ export function Header() {
             </div>
             <div className="flex flex-col justify-center">
               <img
-                src="/images/luchadoor-logo.jpeg"
+                src="/images/luchadoor-logo-nobg.png"
                 alt="Luchadoor"
                 className="h-8 w-auto object-contain mb-1"
               />

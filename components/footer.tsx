@@ -17,7 +17,7 @@ export function Footer() {
                 />
               </div>
               <img
-                src="/images/luchadoor-logo.jpeg"
+                src="/images/luchadoor-logo-nobg.png"
                 alt="Luchadoor"
                 className="h-8 w-auto object-contain"
               />
