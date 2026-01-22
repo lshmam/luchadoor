@@ -41,23 +41,20 @@ export function Header() {
           <Link href="/" className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-full overflow-hidden">
               <img
-                src="/images/luchadoor-logo.jpeg"
-                alt="Luchadoor Logo"
+                src="/images/mascot.png"
+                alt="Luchadoor Mascot"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col justify-center">
+              <img
+                src="/images/luchadoor-logo.jpeg"
+                alt="Luchadoor"
+                className="h-8 w-auto object-contain mb-1"
+              />
               <span
                 className={cn(
-                  "text-2xl font-bold tracking-tight uppercase transition-colors",
-                  isScrolled ? "text-foreground" : "text-white drop-shadow-md"
-                )}
-              >
-                Luchadoor
-              </span>
-              <span
-                className={cn(
-                  "text-xs tracking-widest uppercase transition-colors",
+                  "text-[10px] tracking-widest uppercase transition-colors",
                   isScrolled ? "text-muted-foreground" : "text-gray-200 drop-shadow-sm"
                 )}
               >

@@ -11,12 +11,16 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full overflow-hidden">
                 <img
-                  src="/images/luchadoor-logo.jpeg"
-                  alt="Luchadoor Logo"
+                  src="/images/mascot.png"
+                  alt="Luchadoor Mascot"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-xl font-bold uppercase">Luchadoor</span>
+              <img
+                src="/images/luchadoor-logo.jpeg"
+                alt="Luchadoor"
+                className="h-8 w-auto object-contain"
+              />
             </div>
             <p className="text-background/70 text-sm leading-relaxed">
               Your champion for garage doors and gate systems in Surrey, BC. Professional installation, repair, and
