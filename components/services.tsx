@@ -87,8 +87,8 @@ export function Services() {
 
   return (
     <section id="services" className="py-12 md:py-24">
-      {/* Dark rounded container */}
       <div className="container mx-auto px-4">
+        {/* Dark rounded container */}
         <div className="bg-zinc-950 rounded-3xl p-8 md:p-12">
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -104,27 +104,16 @@ export function Services() {
             </p>
           </div>
 
-          {/* Progress Indicator - Fixed on side for desktop */}
-          <div className="hidden lg:flex fixed right-8 top-1/2 -translate-y-1/2 flex-col gap-3 z-50">
-            {services.map((_, index) => (
-              <div
-                key={index}
-                className={`w-2 h-8 rounded-full transition-all duration-300 ${index === activeIndex ? "bg-primary scale-125" : "bg-zinc-700"
-                  }`}
-              />
-            ))}
-          </div>
-
           {/* Stacking Cards Container */}
-          <div ref={containerRef} className="space-y-8 max-w-5xl mx-auto">
+          <div ref={containerRef} className="space-y-24 max-w-5xl mx-auto pb-24">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="service-card sticky top-24 transition-all duration-300 ease-out"
+                className="service-card sticky top-32 transition-all duration-300 ease-out"
                 style={{ zIndex: index + 1 }}
               >
-                {/* Solid background card - NOT transparent */}
-                <div className="group relative overflow-hidden rounded-3xl border border-zinc-800 hover:border-primary/30 transition-all duration-500 bg-zinc-900">
+                {/* Card Content */}
+                <div className="group relative overflow-hidden rounded-3xl border border-zinc-800 hover:border-primary/30 transition-all duration-500 bg-zinc-900 shadow-2xl">
                   <div className="grid md:grid-cols-2 gap-0">
                     {/* Image Side */}
                     <div className="relative h-64 md:h-80 overflow-hidden">
@@ -145,7 +134,7 @@ export function Services() {
                       </div>
                     </div>
 
-                    {/* Content Side - Solid background */}
+                    {/* Content Side */}
                     <div className="p-8 md:p-10 flex flex-col justify-center bg-zinc-900">
                       {/* Icon */}
                       <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
@@ -175,20 +164,8 @@ export function Services() {
               </div>
             ))}
           </div>
-
-          {/* Mobile Progress Dots */}
-          <div className="flex lg:hidden justify-center mt-12 gap-2">
-            {services.map((_, index) => (
-              <div
-                key={index}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${index === activeIndex ? "bg-primary w-6" : "bg-zinc-700"
-                  }`}
-              />
-            ))}
-          </div>
         </div>
       </div>
     </section>
   )
 }
-

@@ -26,7 +26,6 @@ export default function Home() {
         <Services />
         <OurWork />
         {/* <Features /> */}
-        {/* <WhyChooseUsRadial /> */}
         <WhyChooseUsStats />
         <About />
         <Testimonials />

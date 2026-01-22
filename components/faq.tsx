@@ -41,7 +41,7 @@ export function Faq() {
     const [openId, setOpenId] = useState<number | null>(1)
 
     return (
-        <section className="py-24 bg-background">
+        <section className="py-24 bg-white">
             <div className="container mx-auto px-4">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
@@ -49,10 +49,10 @@ export function Faq() {
                         <HelpCircle className="w-4 h-4" />
                         FAQ
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-foreground uppercase">
+                    <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-zinc-900 uppercase">
                         Commonly <span className="text-primary">Asked</span> Questions
                     </h2>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
+                    <p className="text-zinc-600 text-lg leading-relaxed">
                         Find answers to frequently asked questions about our garage door and gate services. Can&apos;t find what you&apos;re looking for? Contact us directly!
                     </p>
                 </div>
@@ -63,7 +63,7 @@ export function Faq() {
                         <div
                             key={item.id}
                             className={cn(
-                                "rounded-2xl bg-card border-2 overflow-hidden transition-all duration-300",
+                                "rounded-2xl bg-zinc-100 border-2 overflow-hidden transition-all duration-300",
                                 openId === item.id ? "border-primary/20 shadow-lg" : "border-transparent"
                             )}
                         >
@@ -71,7 +71,7 @@ export function Faq() {
                                 onClick={() => setOpenId(openId === item.id ? null : item.id)}
                                 className="w-full flex items-center justify-between p-6 text-left"
                             >
-                                <span className="text-lg font-bold text-card-foreground pr-4">
+                                <span className="text-lg font-bold text-zinc-900 pr-4">
                                     {item.question}
                                 </span>
                                 <div
@@ -95,7 +95,7 @@ export function Faq() {
                                 )}
                             >
                                 <div className="px-6 pb-6">
-                                    <p className="text-muted-foreground leading-relaxed">
+                                    <p className="text-zinc-600 leading-relaxed">
                                         {item.answer}
                                     </p>
                                 </div>

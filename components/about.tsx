@@ -18,7 +18,7 @@ export function About() {
           <div className="relative">
             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="/modern-house-with-beautiful-white-garage-door--sub.jpg"
+                src="/images/ivan-garage.jpeg"
                 alt="Beautiful garage door installation"
                 className="w-full h-full object-cover"
               />
@@ -27,30 +27,27 @@ export function About() {
             {/* Floating Stats Card */}
             <div className="absolute -bottom-8 -right-8 bg-primary text-primary-foreground p-6 rounded-2xl shadow-xl">
               <div className="text-center">
-                <span className="text-4xl font-bold block">500+</span>
-                <span className="text-sm uppercase tracking-wide opacity-90">Happy Customers</span>
+                <span className="text-xl font-bold block">Ivan Soto</span>
+                <span className="text-sm uppercase tracking-wide opacity-90">Owner and CEO</span>
               </div>
             </div>
-
-            {/* Decorative stripe */}
-            <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-2 h-32 bg-secondary rounded-full" />
           </div>
 
           {/* Content Side */}
           <div className="space-y-8">
             <div>
               <span className="text-primary font-bold uppercase tracking-widest text-sm">About Us</span>
-              <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-foreground uppercase">
+              <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-zinc-900 uppercase">
                 Fighting for Your Home&apos;s Security
               </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed">
+              <p className="text-zinc-600 text-lg leading-relaxed">
                 At Luchadoor, we bring championship-level dedication to every garage door and gate project. Based in
                 Surrey, BC, our team of skilled technicians combines years of experience with a passion for quality
                 workmanship.
               </p>
             </div>
 
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-zinc-600 leading-relaxed">
               Whether you need a new garage door installation, emergency repairs, or routine maintenance, we approach
               every job with the same intensity and commitment to excellence. Your satisfaction is our victory!
             </p>
@@ -60,7 +57,7 @@ export function About() {
               {features.map((feature, index) => (
                 <li key={index} className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground">{feature}</span>
+                  <span className="text-zinc-900">{feature}</span>
                 </li>
               ))}
             </ul>

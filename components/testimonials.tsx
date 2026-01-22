@@ -1,6 +1,8 @@
 "use client"
 
-import { Star, Quote } from "lucide-react"
+import { useRef, useState } from "react"
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 const testimonials = [
     {
@@ -55,7 +57,7 @@ const testimonials = [
 
 function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
     return (
-        <div className="flex-shrink-0 w-[350px] md:w-[400px] mx-3">
+        <div className="flex-shrink-0 w-[300px] md:w-[400px] mx-3">
             <div className="relative overflow-hidden rounded-2xl bg-zinc-900 border border-zinc-800 p-6 h-full hover:border-primary/30 transition-colors duration-300">
                 {/* Quote Icon */}
                 <div className="absolute top-4 right-4 opacity-10">
@@ -90,8 +92,31 @@ function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] 
 }
 
 export function Testimonials() {
-    // Double the testimonials for seamless infinite scroll
+    const scrollRef = useRef<HTMLDivElement>(null)
+    const [canScrollLeft, setCanScrollLeft] = useState(false)
+    const [canScrollRight, setCanScrollRight] = useState(true)
+
+    // Double the testimonials for seamless infinite scroll on desktop
     const duplicatedTestimonials = [...testimonials, ...testimonials]
+
+    const checkScrollButtons = () => {
+        if (scrollRef.current) {
+            const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current
+            setCanScrollLeft(scrollLeft > 0)
+            setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10)
+        }
+    }
+
+    const scroll = (direction: "left" | "right") => {
+        if (scrollRef.current) {
+            const scrollAmount = 320
+            scrollRef.current.scrollBy({
+                left: direction === "left" ? -scrollAmount : scrollAmount,
+                behavior: "smooth",
+            })
+            setTimeout(checkScrollButtons, 300)
+        }
+    }
 
     return (
         <section className="py-12 md:py-24 overflow-hidden">
@@ -112,8 +137,81 @@ export function Testimonials() {
                         </p>
                     </div>
 
-                    {/* Infinite Scrolling Marquee */}
-                    <div className="relative">
+                    {/* Mobile: Swipeable Carousel */}
+                    <div className="md:hidden">
+                        {/* Navigation Buttons */}
+                        <div className="flex justify-end gap-2 mb-4 px-4">
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                onClick={() => scroll("left")}
+                                disabled={!canScrollLeft}
+                                className="border-zinc-700 text-white hover:bg-zinc-800 disabled:opacity-30 h-8 w-8"
+                            >
+                                <ChevronLeft className="w-4 h-4" />
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                onClick={() => scroll("right")}
+                                disabled={!canScrollRight}
+                                className="border-zinc-700 text-white hover:bg-zinc-800 disabled:opacity-30 h-8 w-8"
+                            >
+                                <ChevronRight className="w-4 h-4" />
+                            </Button>
+                        </div>
+
+                        {/* Swipeable Cards */}
+                        <div
+                            ref={scrollRef}
+                            onScroll={checkScrollButtons}
+                            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 pb-4"
+                            style={{
+                                scrollbarWidth: "none",
+                                msOverflowStyle: "none",
+                            }}
+                        >
+                            {testimonials.map((testimonial) => (
+                                <div
+                                    key={testimonial.id}
+                                    className="flex-shrink-0 w-[280px] snap-center"
+                                >
+                                    <div className="relative overflow-hidden rounded-2xl bg-zinc-900 border border-zinc-800 p-5 h-full">
+                                        {/* Rating */}
+                                        <div className="flex gap-1 mb-3">
+                                            {[...Array(testimonial.rating)].map((_, i) => (
+                                                <Star key={i} className="w-3 h-3 text-secondary fill-secondary" />
+                                            ))}
+                                        </div>
+
+                                        {/* Quote */}
+                                        <blockquote className="text-gray-300 leading-relaxed mb-4 text-xs line-clamp-4">
+                                            &quot;{testimonial.quote}&quot;
+                                        </blockquote>
+
+                                        {/* Author */}
+                                        <div className="flex items-center gap-2">
+                                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                                                <span className="text-white font-bold text-[10px]">{testimonial.avatar}</span>
+                                            </div>
+                                            <div>
+                                                <h4 className="font-bold text-white text-xs">{testimonial.name}</h4>
+                                                <p className="text-[10px] text-gray-500">{testimonial.position}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Swipe hint */}
+                        <p className="text-center text-zinc-500 text-xs mt-2">
+                            ← Swipe to see more →
+                        </p>
+                    </div>
+
+                    {/* Desktop: Infinite Scrolling Marquee */}
+                    <div className="hidden md:block relative">
                         {/* Gradient Fade Left */}
                         <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
 

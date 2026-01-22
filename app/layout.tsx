@@ -9,21 +9,8 @@ export const metadata: Metadata = {
     "Professional garage door installation, repair, and gate systems in Surrey, BC. Your champion for all garage door needs!",
   generator: "v0.app",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
+    icon: "/images/mascot.png",
+    apple: "/images/mascot.png",
   },
 }
 

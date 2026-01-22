@@ -13,13 +13,6 @@ export function Cta() {
                         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary rounded-full blur-3xl" />
                     </div>
 
-                    {/* Mexican Flag Stripe Accent */}
-                    <div className="absolute left-0 top-0 bottom-0 w-2 flex flex-col rounded-l-3xl overflow-hidden">
-                        <div className="flex-1 bg-primary" />
-                        <div className="flex-1 bg-white" />
-                        <div className="flex-1 bg-secondary" />
-                    </div>
-
                     <div className="relative z-10 py-16 md:py-24 px-8 md:px-12">
                         <div className="max-w-4xl mx-auto text-center">
                             {/* Badge */}

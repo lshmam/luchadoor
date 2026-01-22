@@ -112,12 +112,12 @@ export function OurWork() {
                     {workItems.map((item) => (
                         <div
                             key={item.id}
-                            className="flex-shrink-0 w-[300px] md:w-[350px] snap-center group cursor-pointer"
+                            className="flex-shrink-0 w-[240px] md:w-[350px] snap-center group cursor-pointer"
                         >
                             {/* Card */}
-                            <div className="relative overflow-hidden rounded-2xl bg-zinc-800 border border-zinc-700 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10">
+                            <div className="relative overflow-hidden rounded-2xl bg-zinc-800 border border-zinc-700 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 h-full">
                                 {/* Image */}
-                                <div className="aspect-[4/3] overflow-hidden">
+                                <div className="h-[180px] md:h-[200px] overflow-hidden">
                                     <img
                                         src={item.image}
                                         alt={item.title}
@@ -128,11 +128,11 @@ export function OurWork() {
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-6">
-                                    <h3 className="text-xl font-bold text-white uppercase tracking-wide mb-2 group-hover:text-primary transition-colors">
+                                <div className="p-4 md:p-6">
+                                    <h3 className="text-lg md:text-xl font-bold text-white uppercase tracking-wide mb-2 group-hover:text-primary transition-colors">
                                         {item.title}
                                     </h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed">
+                                    <p className="text-gray-400 text-xs md:text-sm leading-relaxed line-clamp-2">
                                         {item.subtitle}
                                     </p>
                                 </div>

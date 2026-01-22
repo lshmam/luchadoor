@@ -56,12 +56,7 @@ export function GarageDoorIntro({ onComplete }: { onComplete?: () => void }) {
 
                     {/* Door Panel 3 - with window */}
                     <div className="flex-1 relative border-b-2 border-zinc-600">
-                        <div className="absolute inset-4 rounded-sm bg-gradient-to-br from-zinc-600 to-zinc-800 shadow-inner flex items-center justify-center gap-4">
-                            {/* Windows */}
-                            <div className="w-16 h-12 md:w-24 md:h-16 bg-sky-900/40 rounded border-2 border-zinc-500 shadow-inner backdrop-blur-sm" />
-                            <div className="w-16 h-12 md:w-24 md:h-16 bg-sky-900/40 rounded border-2 border-zinc-500 shadow-inner backdrop-blur-sm" />
-                            <div className="hidden sm:block w-16 h-12 md:w-24 md:h-16 bg-sky-900/40 rounded border-2 border-zinc-500 shadow-inner backdrop-blur-sm" />
-                            <div className="hidden md:block w-24 h-16 bg-sky-900/40 rounded border-2 border-zinc-500 shadow-inner backdrop-blur-sm" />
+                        <div className="absolute inset-4 rounded-sm bg-gradient-to-br from-zinc-600 to-zinc-800 shadow-inner flex items-center justify-between gap-4 p-6">
                         </div>
                     </div>
 
@@ -71,10 +66,16 @@ export function GarageDoorIntro({ onComplete }: { onComplete?: () => void }) {
                         <div className="absolute left-8 right-8 top-1/2 h-px bg-zinc-500/30" />
                     </div>
 
-                    {/* Door Panel 5 - Bottom panel with handle indication */}
+                    {/* Door Panel 5 - Bottom panel with windows */}
                     <div className="flex-1 relative">
-                        <div className="absolute inset-4 rounded-sm bg-gradient-to-br from-zinc-600 to-zinc-800 shadow-inner" />
-                        <div className="absolute left-8 right-8 top-1/2 h-px bg-zinc-500/30" />
+                        <div className="absolute inset-4 rounded-sm bg-gradient-to-br from-zinc-600 to-zinc-800 shadow-inner flex items-center justify-between gap-2 md:gap-4 px-4 p-6">
+                            {/* Windows */}
+                            <div className="w-12 h-8 md:w-20 md:h-12 bg-sky-900/40 rounded border-2 border-zinc-500 shadow-inner backdrop-blur-sm" />
+                            <div className="w-12 h-8 md:w-20 md:h-12 bg-sky-900/40 rounded border-2 border-zinc-500 shadow-inner backdrop-blur-sm" />
+                            <div className="w-12 h-8 md:w-20 md:h-12 bg-sky-900/40 rounded border-2 border-zinc-500 shadow-inner backdrop-blur-sm" />
+                            <div className="hidden sm:block w-12 h-8 md:w-20 md:h-12 bg-sky-900/40 rounded border-2 border-zinc-500 shadow-inner backdrop-blur-sm" />
+                            <div className="hidden md:block w-20 h-12 bg-sky-900/40 rounded border-2 border-zinc-500 shadow-inner backdrop-blur-sm" />
+                        </div>
                         {/* Bottom edge detail */}
                         <div className="absolute bottom-0 left-0 right-0 h-2 bg-zinc-900" />
                     </div>
@@ -85,13 +86,13 @@ export function GarageDoorIntro({ onComplete }: { onComplete?: () => void }) {
                 <div className="absolute top-0 right-0 w-3 md:w-4 h-full bg-gradient-to-l from-zinc-900 via-zinc-700 to-zinc-800" />
 
                 {/* Logo in center */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <img
                         src="/images/logo.png"
                         alt="Luchadoor Logo"
                         className="w-32 h-32 md:w-48 md:h-48 object-contain drop-shadow-2xl animate-pulse"
                     />
-                </div>
+                </div> */}
             </div>
 
             {/* Opening Sound Effect Visual - subtle light coming from bottom */}

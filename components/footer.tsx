@@ -9,13 +9,12 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-lg">L</span>
-                </div>
-                <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-secondary flex items-center justify-center">
-                  <span className="text-secondary-foreground text-[10px] font-bold">D</span>
-                </div>
+              <div className="w-10 h-10 rounded-full overflow-hidden">
+                <img
+                  src="/images/luchadoor-logo.jpeg"
+                  alt="Luchadoor Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="text-xl font-bold uppercase">Luchadoor</span>
             </div>
@@ -101,11 +100,6 @@ export function Footer() {
           <p className="text-background/50 text-sm">
             © {new Date().getFullYear()} Luchadoor Garage Door & Gate Systems. All rights reserved.
           </p>
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-4 bg-primary rounded-sm" />
-            <div className="w-6 h-4 bg-background rounded-sm" />
-            <div className="w-6 h-4 bg-secondary rounded-sm" />
-          </div>
         </div>
       </div>
     </footer>
