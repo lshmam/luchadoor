@@ -16,7 +16,7 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image Side */}
           <div className="relative">
-            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-[4/3] rounded-none overflow-hidden shadow-2xl">
               <img
                 src="/images/ivan-garage.jpeg"
                 alt="Beautiful garage door installation"
@@ -25,7 +25,7 @@ export function About() {
             </div>
 
             {/* Floating Stats Card */}
-            <div className="absolute -bottom-8 -right-8 bg-primary text-primary-foreground p-6 rounded-2xl shadow-xl">
+            <div className="absolute -bottom-8 -right-8 bg-primary text-primary-foreground p-6 rounded-none shadow-xl">
               <div className="text-center">
                 <span className="text-xl font-bold block">Ivan Soto</span>
                 <span className="text-sm uppercase tracking-wide opacity-90">Owner and CEO</span>

@@ -81,99 +81,96 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
 
 export function WhyChooseUsStats() {
     return (
-        <section className="py-12 md:py-24 overflow-hidden">
+        <section className="py-12 md:py-24 overflow-hidden bg-zinc-950">
             <div className="container mx-auto px-4">
-                {/* Dark rounded container */}
-                <div className="bg-zinc-950 rounded-3xl p-8 md:p-12">
-                    {/* Section Header */}
-                    <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                        <span className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-bold uppercase tracking-widest mb-4">
-                            <Shield className="w-4 h-4" />
-                            Why Choose Us
-                        </span>
-                        <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 md:mb-6 text-white uppercase tracking-tight">
-                            Championship-Level Service
-                        </h2>
-                        <p className="text-gray-400 text-base md:text-lg leading-relaxed">
-                            We bring the same dedication and intensity to every garage door project.
-                        </p>
-                    </div>
+                {/* Section Header */}
+                <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                    <span className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-none text-sm font-bold uppercase tracking-widest mb-4">
+                        <Shield className="w-4 h-4" />
+                        Why Choose Us
+                    </span>
+                    <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 md:mb-6 text-white uppercase tracking-tight">
+                        Championship-Level Service
+                    </h2>
+                    <p className="text-gray-400 text-base md:text-lg leading-relaxed">
+                        We bring the same dedication and intensity to every garage door project.
+                    </p>
+                </div>
 
-                    {/* Stats Counter Bar */}
-                    <div className="relative mb-16 md:mb-24">
-                        {/* Background glow */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 rounded-3xl blur-xl" />
+                {/* Stats Counter Bar */}
+                <div className="relative mb-16 md:mb-24">
+                    {/* Background glow */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 rounded-none blur-xl" />
 
-                        <div className="relative bg-zinc-900/80 backdrop-blur-sm border border-zinc-800 rounded-3xl p-8 md:p-12">
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
-                                {stats.map((stat, index) => (
-                                    <div
-                                        key={index}
-                                        className="text-center relative"
-                                    >
-                                        <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-                                        <p className="text-gray-400 text-sm md:text-base mt-2 uppercase tracking-wider font-medium">
-                                            {stat.label}
-                                        </p>
-
-                                        {/* Divider line - hidden on last item and mobile */}
-                                        {index < stats.length - 1 && (
-                                            <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-16 w-px bg-zinc-700" />
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Feature List with Mascot */}
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        {/* Left: Mascot */}
-                        <div className="relative flex justify-center order-2 lg:order-1">
-                            {/* Glow effects */}
-                            <div className="absolute inset-0 bg-primary/10 rounded-full blur-[100px]" />
-                            <div className="absolute inset-0 bg-secondary/10 rounded-full blur-[80px] translate-x-10" />
-
-                            {/* Mascot Image */}
-                            <div className="relative">
-                                <img
-                                    src="/images/mascot.png"
-                                    alt="Luchadoor Mascot"
-                                    className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain drop-shadow-2xl"
-                                />
-
-                                {/* Floating badge */}
-                                <div className="absolute -top-4 -right-4 md:top-0 md:right-0 bg-secondary text-secondary-foreground px-4 py-2 rounded-full font-bold text-sm uppercase tracking-wide shadow-lg animate-bounce">
-                                    #1 In Surrey
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Right: Feature List */}
-                        <div className="space-y-6 order-1 lg:order-2">
-                            {features.map((feature, index) => (
+                    <div className="relative bg-zinc-900/80 backdrop-blur-sm border border-zinc-800 rounded-none p-8 md:p-12">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+                            {stats.map((stat, index) => (
                                 <div
                                     key={index}
-                                    className="group flex gap-5 p-5 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-primary/50 hover:bg-zinc-900 transition-all duration-300"
-                                    style={{ animation: `fadeInRight 0.5s ease-out ${index * 0.1}s both` }}
+                                    className="text-center relative"
                                 >
-                                    {/* Icon */}
-                                    <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary transition-colors">
-                                        <feature.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
-                                    </div>
+                                    <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                                    <p className="text-gray-400 text-sm md:text-base mt-2 uppercase tracking-wider font-medium">
+                                        {stat.label}
+                                    </p>
 
-                                    {/* Content */}
-                                    <div className="flex-1">
-                                        <h3 className="text-lg md:text-xl font-bold text-white uppercase tracking-wide mb-2">
-                                            {feature.title}
-                                        </h3>
-                                        <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-                                            {feature.description}
-                                        </p>
-                                    </div>
+                                    {/* Divider line - hidden on last item and mobile */}
+                                    {index < stats.length - 1 && (
+                                        <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-16 w-px bg-zinc-700" />
+                                    )}
                                 </div>
                             ))}
                         </div>
+                    </div>
+                </div>
+
+                {/* Feature List with Mascot */}
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    {/* Left: Mascot */}
+                    <div className="relative flex justify-center order-2 lg:order-1">
+                        {/* Glow effects */}
+                        <div className="absolute inset-0 bg-primary/10 rounded-full blur-[100px]" />
+                        <div className="absolute inset-0 bg-secondary/10 rounded-full blur-[80px] translate-x-10" />
+
+                        {/* Mascot Image */}
+                        <div className="relative">
+                            <img
+                                src="/images/mascot.png"
+                                alt="Luchadoor Mascot"
+                                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain drop-shadow-2xl"
+                            />
+
+                            {/* Floating badge */}
+                            <div className="absolute -top-4 -right-4 md:top-0 md:right-0 bg-secondary text-secondary-foreground px-4 py-2 rounded-none font-bold text-sm uppercase tracking-wide shadow-lg animate-bounce">
+                                #1 In Surrey
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right: Feature List */}
+                    <div className="space-y-6 order-1 lg:order-2">
+                        {features.map((feature, index) => (
+                            <div
+                                key={index}
+                                className="group flex gap-5 p-5 rounded-none bg-zinc-900/50 border border-zinc-800 hover:border-primary/50 hover:bg-zinc-900 transition-all duration-300"
+                                style={{ animation: `fadeInRight 0.5s ease-out ${index * 0.1}s both` }}
+                            >
+                                {/* Icon */}
+                                <div className="flex-shrink-0 w-14 h-14 rounded-none bg-primary/20 flex items-center justify-center group-hover:bg-primary transition-colors">
+                                    <feature.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                                </div>
+
+                                {/* Content */}
+                                <div className="flex-1">
+                                    <h3 className="text-lg md:text-xl font-bold text-white uppercase tracking-wide mb-2">
+                                        {feature.title}
+                                    </h3>
+                                    <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+                                        {feature.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

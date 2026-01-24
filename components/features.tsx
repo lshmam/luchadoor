@@ -48,18 +48,18 @@ const features = [
 
 export function Features() {
     return (
-        <section className="py-24 bg-gradient-to-b from-muted/30 to-background">
+        <section className="py-24 bg-zinc-950">
             <div className="container mx-auto px-4">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold uppercase tracking-widest mb-4">
+                    <span className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-none text-sm font-bold uppercase tracking-widest mb-4">
                         <Shield className="w-4 h-4" />
                         Why Choose Us
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-foreground uppercase">
+                    <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white uppercase">
                         Championship-Level Service
                     </h2>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
+                    <p className="text-gray-400 text-lg leading-relaxed">
                         We bring the same dedication and intensity to every garage door project. Here&apos;s why Surrey homeowners trust Luchadoor.
                     </p>
                 </div>
@@ -69,25 +69,25 @@ export function Features() {
                     {features.map((feature, index) => (
                         <Card
                             key={index}
-                            className="group relative overflow-hidden border-2 border-transparent hover:border-primary/20 bg-card hover:bg-gradient-to-br hover:from-card hover:to-primary/5 transition-all duration-500"
+                            className="group relative overflow-hidden border border-zinc-800 hover:border-primary/30 bg-zinc-900 hover:bg-zinc-900/80 transition-all duration-500"
                         >
                             <CardContent className="p-8">
                                 {/* Stat Badge */}
                                 <div className="absolute top-4 right-4 text-right">
                                     <span className="text-2xl font-bold text-primary block">{feature.stat}</span>
-                                    <span className="text-xs text-muted-foreground uppercase tracking-wide">{feature.statLabel}</span>
+                                    <span className="text-xs text-gray-500 uppercase tracking-wide">{feature.statLabel}</span>
                                 </div>
 
                                 {/* Icon */}
-                                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                                <div className="w-16 h-16 rounded-none bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                                     <feature.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
                                 </div>
 
                                 {/* Content */}
-                                <h3 className="text-xl font-bold uppercase tracking-wide text-card-foreground mb-3">
+                                <h3 className="text-xl font-bold uppercase tracking-wide text-white mb-3">
                                     {feature.title}
                                 </h3>
-                                <p className="text-muted-foreground leading-relaxed">
+                                <p className="text-gray-400 leading-relaxed">
                                     {feature.description}
                                 </p>
                             </CardContent>

@@ -66,7 +66,7 @@ export function Hero() {
           preload="auto"
           className="w-full h-full object-cover"
         >
-          <source src="/garage-hero.mp4" type="video/mp4" />
+          <source src="/garage-hero-2.mp4" type="video/mp4" />
         </video>
         {/* Dark Overlay for Text Readability */}
         {/* <div className="absolute inset-0 bg-black/60" /> */}
@@ -100,7 +100,7 @@ export function Hero() {
             </Button>
             <a
               href="tel:6049775156"
-              className="inline-flex items-center justify-center gap-3 border-2 border-white text-white hover:bg-white hover:text-black font-bold uppercase tracking-wide text-lg px-8 h-14 rounded-xl transition-colors"
+              className="inline-flex items-center justify-center gap-3 border-2 border-white text-white hover:bg-white hover:text-black font-bold uppercase tracking-wide text-lg px-8 h-14 rounded-none transition-colors"
             >
               <Phone className="w-5 h-5" />
               604-977-5156

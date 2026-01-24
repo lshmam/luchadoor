@@ -58,7 +58,7 @@ const testimonials = [
 function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
     return (
         <div className="flex-shrink-0 w-[300px] md:w-[400px] mx-3">
-            <div className="relative overflow-hidden rounded-2xl bg-zinc-900 border border-zinc-800 p-6 h-full hover:border-primary/30 transition-colors duration-300">
+            <div className="relative overflow-hidden rounded-none bg-zinc-900 border border-zinc-800 p-6 h-full hover:border-primary/30 transition-colors duration-300">
                 {/* Quote Icon */}
                 <div className="absolute top-4 right-4 opacity-10">
                     <Quote className="w-10 h-10 text-primary" />
@@ -78,7 +78,7 @@ function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] 
 
                 {/* Author */}
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-none bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                         <span className="text-white font-bold text-xs">{testimonial.avatar}</span>
                     </div>
                     <div>
@@ -119,13 +119,13 @@ export function Testimonials() {
     }
 
     return (
-        <section className="py-12 md:py-24 overflow-hidden">
-            <div className="container mx-auto px-4">
-                {/* Dark rounded container */}
-                <div className="bg-zinc-950 rounded-3xl py-12 overflow-hidden">
+        <section className="py-12 md:py-24 overflow-hidden bg-zinc-950">
+            {/* Dark rounded container - now full width */}
+            <div className="py-12 overflow-hidden">
+                <div className="container mx-auto px-4">
                     {/* Section Header */}
                     <div className="text-center max-w-3xl mx-auto mb-12 px-4 md:px-8">
-                        <span className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-bold uppercase tracking-widest mb-4">
+                        <span className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-none text-sm font-bold uppercase tracking-widest mb-4">
                             <Star className="w-4 h-4" />
                             Testimonials
                         </span>
@@ -176,7 +176,7 @@ export function Testimonials() {
                                     key={testimonial.id}
                                     className="flex-shrink-0 w-[280px] snap-center"
                                 >
-                                    <div className="relative overflow-hidden rounded-2xl bg-zinc-900 border border-zinc-800 p-5 h-full">
+                                    <div className="relative overflow-hidden rounded-none bg-zinc-900 border border-zinc-800 p-5 h-full">
                                         {/* Rating */}
                                         <div className="flex gap-1 mb-3">
                                             {[...Array(testimonial.rating)].map((_, i) => (
@@ -191,7 +191,7 @@ export function Testimonials() {
 
                                         {/* Author */}
                                         <div className="flex items-center gap-2">
-                                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                                            <div className="w-8 h-8 rounded-none bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                                                 <span className="text-white font-bold text-[10px]">{testimonial.avatar}</span>
                                             </div>
                                             <div>

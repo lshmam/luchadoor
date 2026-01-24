@@ -45,7 +45,7 @@ export function Faq() {
             <div className="container mx-auto px-4">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold uppercase tracking-widest mb-4">
+                    <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-none text-sm font-bold uppercase tracking-widest mb-4">
                         <HelpCircle className="w-4 h-4" />
                         FAQ
                     </span>
@@ -63,7 +63,7 @@ export function Faq() {
                         <div
                             key={item.id}
                             className={cn(
-                                "rounded-2xl bg-zinc-100 border-2 overflow-hidden transition-all duration-300",
+                                "rounded-none bg-zinc-100 border-2 overflow-hidden transition-all duration-300",
                                 openId === item.id ? "border-primary/20 shadow-lg" : "border-transparent"
                             )}
                         >
@@ -76,7 +76,7 @@ export function Faq() {
                                 </span>
                                 <div
                                     className={cn(
-                                        "w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 transition-all duration-300",
+                                        "w-10 h-10 rounded-none bg-primary/10 flex items-center justify-center flex-shrink-0 transition-all duration-300",
                                         openId === item.id && "bg-primary rotate-180"
                                     )}
                                 >
