@@ -139,28 +139,6 @@ export function Testimonials() {
 
                     {/* Mobile: Swipeable Carousel */}
                     <div className="md:hidden">
-                        {/* Navigation Buttons */}
-                        <div className="flex justify-end gap-2 mb-4 px-4">
-                            <Button
-                                variant="outline"
-                                size="icon"
-                                onClick={() => scroll("left")}
-                                disabled={!canScrollLeft}
-                                className="border-zinc-700 text-white hover:bg-zinc-800 disabled:opacity-30 h-8 w-8"
-                            >
-                                <ChevronLeft className="w-4 h-4" />
-                            </Button>
-                            <Button
-                                variant="outline"
-                                size="icon"
-                                onClick={() => scroll("right")}
-                                disabled={!canScrollRight}
-                                className="border-zinc-700 text-white hover:bg-zinc-800 disabled:opacity-30 h-8 w-8"
-                            >
-                                <ChevronRight className="w-4 h-4" />
-                            </Button>
-                        </div>
-
                         {/* Swipeable Cards */}
                         <div
                             ref={scrollRef}
@@ -204,27 +182,50 @@ export function Testimonials() {
                             ))}
                         </div>
 
+                        {/* Navigation Buttons (Bottom) */}
+                        <div className="flex justify-center gap-4 mt-6 px-4">
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                onClick={() => scroll("left")}
+                                disabled={!canScrollLeft}
+                                className="rounded-none border-zinc-700 text-white hover:bg-zinc-800 hover:text-white disabled:opacity-30 h-10 w-10 bg-zinc-900"
+                            >
+                                <ChevronLeft className="w-5 h-5" />
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                onClick={() => scroll("right")}
+                                disabled={!canScrollRight}
+                                className="rounded-none border-zinc-700 text-white hover:bg-zinc-800 hover:text-white disabled:opacity-30 h-10 w-10 bg-zinc-900"
+                            >
+                                <ChevronRight className="w-5 h-5" />
+                            </Button>
+                        </div>
+
                         {/* Swipe hint */}
                         <p className="text-center text-zinc-500 text-xs mt-2">
                             ← Swipe to see more →
                         </p>
                     </div>
 
-                    {/* Desktop: Infinite Scrolling Marquee */}
-                    <div className="hidden md:block relative">
-                        {/* Gradient Fade Left */}
-                        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
+                </div>
+            </div>
 
-                        {/* Gradient Fade Right */}
-                        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
+            {/* Desktop: Infinite Scrolling Marquee - Full Width */}
+            <div className="hidden md:block relative w-full">
+                {/* Gradient Fade Left */}
+                <div className="absolute left-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-r from-zinc-950 via-zinc-950/80 to-transparent z-10 pointer-events-none" />
 
-                        {/* Marquee Container */}
-                        <div className="flex animate-marquee">
-                            {duplicatedTestimonials.map((testimonial, index) => (
-                                <TestimonialCard key={`${testimonial.id}-${index}`} testimonial={testimonial} />
-                            ))}
-                        </div>
-                    </div>
+                {/* Gradient Fade Right */}
+                <div className="absolute right-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-l from-zinc-950 via-zinc-950/80 to-transparent z-10 pointer-events-none" />
+
+                {/* Marquee Container */}
+                <div className="flex animate-marquee">
+                    {duplicatedTestimonials.map((testimonial, index) => (
+                        <TestimonialCard key={`${testimonial.id}-${index}`} testimonial={testimonial} />
+                    ))}
                 </div>
             </div>
 

@@ -78,27 +78,6 @@ export function OurWork() {
                 </div>
 
                 {/* Carousel Navigation - Desktop */}
-                <div className="hidden md:flex justify-end gap-2 mb-6">
-                    <Button
-                        variant="outline"
-                        size="icon"
-                        onClick={() => scroll("left")}
-                        disabled={!canScrollLeft}
-                        className="border-zinc-700 text-white hover:bg-zinc-800 disabled:opacity-30"
-                    >
-                        <ChevronLeft className="w-5 h-5" />
-                    </Button>
-                    <Button
-                        variant="outline"
-                        size="icon"
-                        onClick={() => scroll("right")}
-                        disabled={!canScrollRight}
-                        className="border-zinc-700 text-white hover:bg-zinc-800 disabled:opacity-30"
-                    >
-                        <ChevronRight className="w-5 h-5" />
-                    </Button>
-                </div>
-
                 {/* Carousel */}
                 <div
                     ref={scrollRef}
@@ -123,7 +102,7 @@ export function OurWork() {
                                         alt={item.title}
                                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                     />
-                                    {/* Gradient Overlay - Removed to fix visibility issue, or made subtle */}
+                                    {/* Gradient Overlay */}
                                     <div className="absolute inset-0 bg-black/20" />
                                 </div>
 
@@ -142,6 +121,28 @@ export function OurWork() {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                {/* Carousel Navigation - Desktop (Moved to Bottom) */}
+                <div className="hidden md:flex justify-end gap-4 mt-8">
+                    <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => scroll("left")}
+                        disabled={!canScrollLeft}
+                        className="rounded-none border-zinc-700 text-white hover:bg-zinc-800 hover:text-white disabled:opacity-30 w-12 h-12 bg-zinc-900"
+                    >
+                        <ChevronLeft className="w-6 h-6" />
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="icon"
+                        onClick={() => scroll("right")}
+                        disabled={!canScrollRight}
+                        className="rounded-none border-zinc-700 text-white hover:bg-zinc-800 hover:text-white disabled:opacity-30 w-12 h-12 bg-zinc-900"
+                    >
+                        <ChevronRight className="w-6 h-6" />
+                    </Button>
                 </div>
 
                 {/* Mobile Swipe Indicator */}

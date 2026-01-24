@@ -76,16 +76,13 @@ export function Hero() {
       <div className="container mx-auto px-4 relative z-20 text-center pt-20">
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Headline */}
-          <h1 className="text-5xl md:text-5xl lg:text-7xl font-bold leading-tight text-white uppercase tracking-tight">
-            Your Champion for{" "}
-            <span className="text-white">Garage Doors</span>{" "}
-            <span className="text-white">&</span>{" "}
-            <span className="text-white">Gates</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white uppercase tracking-tight">
+            Garage Door Repair and Installation in Vancouver
           </h1>
 
           {/* Description */}
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Professional installation, repair, and maintenance services in Surrey, BC.
+            Professional installation, repair, and maintenance services in Vancouver & Surrey, BC.
             We fight for your home&apos;s security with championship-level service.
           </p>
 

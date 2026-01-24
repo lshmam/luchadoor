@@ -25,7 +25,7 @@ export function About() {
             </div>
 
             {/* Floating Stats Card */}
-            <div className="absolute -bottom-8 -right-8 bg-primary text-primary-foreground p-6 rounded-none shadow-xl">
+            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-auto lg:-right-8 bg-primary text-primary-foreground p-6 rounded-none shadow-xl min-w-[200px]">
               <div className="text-center">
                 <span className="text-xl font-bold block">Ivan Soto</span>
                 <span className="text-sm uppercase tracking-wide opacity-90">Owner and CEO</span>
