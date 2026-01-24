@@ -39,18 +39,18 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full overflow-hidden">
+            <div className="w-16 h-16 rounded-full overflow-hidden">
               <img
                 src="/images/mascot.png"
                 alt="Luchadoor Mascot"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col justify-center items-start">
               <img
                 src="/images/luchadoor-logo-nobg.png"
                 alt="Luchadoor"
-                className="h-8 w-auto object-contain mb-1"
+                className="h-12 w-auto object-contain mb-1"
               />
               <span
                 className={cn(
@@ -93,16 +93,18 @@ export function Header() {
               <Phone className={cn("w-4 h-4", isScrolled ? "text-primary" : "text-white")} />
               <span>604-977-5156</span>
             </a>
-            <Button
-              className={cn(
-                "font-bold uppercase tracking-wide",
-                isScrolled
-                  ? "bg-secondary hover:bg-secondary/90 text-secondary-foreground"
-                  : "bg-transparent border-2 border-white text-white hover:bg-white hover:text-foreground"
-              )}
-            >
-              Get Free Quote
-            </Button>
+            <a href="tel:6049775156">
+              <Button
+                className={cn(
+                  "font-bold uppercase tracking-wide",
+                  isScrolled
+                    ? "bg-secondary hover:bg-secondary/90 text-secondary-foreground"
+                    : "bg-transparent border-2 border-white text-white hover:bg-white hover:text-foreground"
+                )}
+              >
+                Get Free Quote
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -133,9 +135,11 @@ export function Header() {
                 <Phone className="w-4 h-4 text-primary" />
                 <span>604-977-5156</span>
               </a>
-              <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold uppercase tracking-wide w-full">
-                Get Free Quote
-              </Button>
+              <a href="tel:6049775156" className="w-full">
+                <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold uppercase tracking-wide w-full">
+                  Get Free Quote
+                </Button>
+              </a>
             </nav>
           </div>
         )}

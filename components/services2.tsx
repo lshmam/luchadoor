@@ -132,9 +132,9 @@ export function Services2() {
                                 </p>
 
                                 {/* CTA */}
-                                <button className="self-start mt-auto px-8 py-4 bg-zinc-950 border border-zinc-700 text-white font-bold uppercase tracking-wide hover:bg-primary hover:text-black hover:border-primary transition-all duration-300">
-                                    Learn More
-                                </button>
+                                <a href="tel:6049775156" className="self-start mt-auto px-8 py-4 bg-zinc-950 border border-zinc-700 text-white font-bold uppercase tracking-wide hover:bg-primary hover:text-black hover:border-primary transition-all duration-300">
+                                    Call Now
+                                </a>
                             </div>
 
                             {/* Accent line */}

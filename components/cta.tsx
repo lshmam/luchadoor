@@ -32,13 +32,15 @@ export function Cta() {
 
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <Button
-                                size="lg"
-                                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold uppercase tracking-wide text-lg px-8 h-14"
-                            >
-                                Get Free Estimate
-                                <ArrowRight className="ml-2 w-5 h-5" />
-                            </Button>
+                            <a href="tel:6049775156">
+                                <Button
+                                    size="lg"
+                                    className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold uppercase tracking-wide text-lg px-8 h-14"
+                                >
+                                    Get Free Estimate
+                                    <ArrowRight className="ml-2 w-5 h-5" />
+                                </Button>
+                            </a>
                             <a
                                 href="tel:6049775156"
                                 className="inline-flex items-center gap-3 text-white hover:text-primary transition-colors font-bold uppercase tracking-wide"
@@ -53,7 +55,7 @@ export function Cta() {
                         {/* Trust Indicators */}
                         <div className="flex flex-wrap justify-center gap-8 mt-12 pt-12 border-t border-white/10">
                             <div className="text-center">
-                                <span className="text-3xl font-bold text-white block">500+</span>
+                                <span className="text-3xl font-bold text-white block">50+</span>
                                 <span className="text-sm text-white/60 uppercase tracking-wide">Happy Customers</span>
                             </div>
                             <div className="text-center">

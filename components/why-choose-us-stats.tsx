@@ -6,7 +6,7 @@ import { Clock, Shield, Award, Wrench, Home, Zap } from "lucide-react"
 const stats = [
     { value: 24, suffix: "/7", label: "Emergency Service" },
     { value: 10, suffix: "+", label: "Years Experience" },
-    { value: 500, suffix: "+", label: "Projects Completed" },
+    { value: 50, suffix: "+", label: "Projects Completed" },
     { value: 100, suffix: "%", label: "Satisfaction Rate" },
 ]
 

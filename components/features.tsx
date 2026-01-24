@@ -27,7 +27,7 @@ const features = [
         icon: Wrench,
         title: "Expert Technicians",
         description: "Skilled professionals with extensive training on all garage door brands and models.",
-        stat: "500+",
+        stat: "50+",
         statLabel: "Projects",
     },
     {
@@ -69,13 +69,13 @@ export function Features() {
                     {features.map((feature, index) => (
                         <Card
                             key={index}
-                            className="group relative overflow-hidden border border-zinc-800 hover:border-primary/30 bg-zinc-900 hover:bg-zinc-900/80 transition-all duration-500"
+                            className="group relative overflow-hidden border border-zinc-800 hover:border-primary/30 bg-zinc-900 hover:bg-zinc-900/80 transition-all duration-50"
                         >
                             <CardContent className="p-8">
                                 {/* Stat Badge */}
                                 <div className="absolute top-4 right-4 text-right">
                                     <span className="text-2xl font-bold text-primary block">{feature.stat}</span>
-                                    <span className="text-xs text-gray-500 uppercase tracking-wide">{feature.statLabel}</span>
+                                    <span className="text-xs text-gray-50 uppercase tracking-wide">{feature.statLabel}</span>
                                 </div>
 
                                 {/* Icon */}

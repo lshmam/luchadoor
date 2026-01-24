@@ -26,7 +26,7 @@ const features = [
         icon: Wrench,
         title: "Expert Technicians",
         description: "Skilled professionals on all brands",
-        stat: "500+",
+        stat: "50+",
     },
     {
         icon: Home,

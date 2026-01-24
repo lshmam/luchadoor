@@ -9,7 +9,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-none overflow-hidden">
+              <div className="w-16 h-16 rounded-none overflow-hidden">
                 <img
                   src="/images/mascot.png"
                   alt="Luchadoor Mascot"
@@ -19,7 +19,7 @@ export function Footer() {
               <img
                 src="/images/luchadoor-logo-nobg.png"
                 alt="Luchadoor"
-                className="h-8 w-auto object-contain"
+                className="h-14 w-auto object-contain"
               />
             </div>
             <p className="text-background/70 text-sm leading-relaxed">

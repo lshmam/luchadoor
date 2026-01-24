@@ -77,7 +77,7 @@ export function Hero() {
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white uppercase tracking-tight">
-            Garage Door Repair and Installation in Vancouver
+            Garage Door Repair and Installation in Surrey
           </h1>
 
           {/* Description */}
@@ -88,13 +88,15 @@ export function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button
-              size="lg"
-              className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold uppercase tracking-wide text-lg px-8 h-14"
-            >
-              Get Free Estimate
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <a href="tel:6049775156">
+              <Button
+                size="lg"
+                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold uppercase tracking-wide text-lg px-8 h-14"
+              >
+                Get Free Estimate
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </a>
             <a
               href="tel:6049775156"
               className="inline-flex items-center justify-center gap-3 border-2 border-white text-white hover:bg-white hover:text-black font-bold uppercase tracking-wide text-lg px-8 h-14 rounded-none transition-colors"

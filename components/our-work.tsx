@@ -107,7 +107,7 @@ export function OurWork() {
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-4 md:p-6">
+                                <div className="p-4 md:p-6 pb-8 md:pb-10">
                                     <h3 className="text-lg md:text-xl font-bold text-white uppercase tracking-wide mb-2 group-hover:text-primary transition-colors">
                                         {item.title}
                                     </h3>
