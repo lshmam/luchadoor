@@ -12,6 +12,18 @@ export const metadata: Metadata = {
     icon: "/images/mascot.png",
     apple: "/images/mascot.png",
   },
+  openGraph: {
+    title: "Luchadoor | Garage Door & Gate Systems",
+    description: "Professional garage door installation, repair, and gate systems in Surrey, BC. Your champion for all garage door needs!",
+    images: ["/images/mascot.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Luchadoor | Garage Door & Gate Systems",
+    description: "Professional garage door installation, repair, and gate systems in Surrey, BC.",
+    images: ["/images/mascot.png"],
+  },
 }
 
 export default function RootLayout({
