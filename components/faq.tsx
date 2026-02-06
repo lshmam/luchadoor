@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { ChevronDown, HelpCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { Reveal } from "@/components/reveal"
 
 const faqData = [
     {
@@ -41,68 +42,74 @@ export function Faq() {
     const [openId, setOpenId] = useState<number | null>(1)
 
     return (
-        <section className="py-24 bg-white">
-            <div className="container mx-auto px-4">
+        <section className="py-24 relative overflow-hidden">
+            <div className="container mx-auto px-6 md:px-12">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-none text-sm font-bold uppercase tracking-widest mb-4">
-                        <HelpCircle className="w-4 h-4" />
-                        FAQ
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-zinc-900 uppercase">
-                        Commonly <span className="text-primary">Asked</span> Questions
-                    </h2>
-                    <p className="text-zinc-600 text-lg leading-relaxed">
-                        Find answers to frequently asked questions about our garage door and gate services. Can&apos;t find what you&apos;re looking for? Contact us directly!
-                    </p>
+                    <Reveal width="100%">
+                        <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-none text-sm font-bold uppercase tracking-widest mb-4">
+                            <HelpCircle className="w-4 h-4" />
+                            FAQ
+                        </span>
+                        <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-zinc-900 uppercase">
+                            Commonly <span className="text-primary">Asked</span> Questions
+                        </h2>
+                    </Reveal>
+                    <Reveal delay={200} width="100%">
+                        <p className="text-zinc-600 text-lg leading-relaxed">
+                            Find answers to frequently asked questions about our garage door and gate services. Can&apos;t find what you&apos;re looking for? Contact us directly!
+                        </p>
+                    </Reveal>
                 </div>
 
                 {/* FAQ Accordion */}
-                <div className="max-w-3xl mx-auto space-y-4">
-                    {faqData.map((item) => (
-                        <div
-                            key={item.id}
-                            className={cn(
-                                "rounded-none bg-zinc-100 border-2 overflow-hidden transition-all duration-300",
-                                openId === item.id ? "border-primary/20 shadow-lg" : "border-transparent"
-                            )}
-                        >
-                            <button
-                                onClick={() => setOpenId(openId === item.id ? null : item.id)}
-                                className="w-full flex items-center justify-between p-6 text-left"
-                            >
-                                <span className="text-lg font-bold text-zinc-900 pr-4">
-                                    {item.question}
-                                </span>
-                                <div
-                                    className={cn(
-                                        "w-10 h-10 rounded-none bg-primary/10 flex items-center justify-center flex-shrink-0 transition-all duration-300",
-                                        openId === item.id && "bg-primary rotate-180"
-                                    )}
-                                >
-                                    <ChevronDown
-                                        className={cn(
-                                            "w-5 h-5 text-primary transition-colors",
-                                            openId === item.id && "text-primary-foreground"
-                                        )}
-                                    />
-                                </div>
-                            </button>
+                <Reveal delay={400} width="100%">
+                    <div className="max-w-3xl mx-auto space-y-4">
+                        {faqData.map((item) => (
                             <div
+                                key={item.id}
                                 className={cn(
-                                    "overflow-hidden transition-all duration-300",
-                                    openId === item.id ? "max-h-96" : "max-h-0"
+                                    "rounded-none bg-zinc-100 border-2 overflow-hidden transition-all duration-300",
+                                    openId === item.id ? "border-primary/20 shadow-lg" : "border-transparent"
                                 )}
                             >
-                                <div className="px-6 pb-6">
-                                    <p className="text-zinc-600 leading-relaxed">
-                                        {item.answer}
-                                    </p>
+                                <button
+                                    onClick={() => setOpenId(openId === item.id ? null : item.id)}
+                                    className="w-full flex items-center justify-between p-6 text-left"
+                                >
+                                    <span className="text-lg font-bold text-zinc-900 pr-4">
+                                        {item.question}
+                                    </span>
+                                    <div
+                                        className={cn(
+                                            "w-10 h-10 rounded-none bg-primary/10 flex items-center justify-center flex-shrink-0 transition-all duration-300",
+                                            openId === item.id && "bg-primary rotate-180"
+                                        )}
+                                    >
+                                        <ChevronDown
+                                            className={cn(
+                                                "w-5 h-5 text-primary transition-colors",
+                                                openId === item.id && "text-primary-foreground"
+                                            )}
+                                        />
+                                    </div>
+                                </button>
+                                <div
+                                    className={cn(
+                                        "overflow-hidden transition-all duration-300",
+                                        openId === item.id ? "max-h-96" : "max-h-0"
+                                    )}
+                                >
+                                    <div className="px-6 pb-6">
+                                        <p className="text-zinc-600 leading-relaxed">
+                                            {item.answer}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                </Reveal>
             </div>
         </section>
     )

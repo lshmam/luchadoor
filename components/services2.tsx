@@ -1,6 +1,7 @@
 import { useRef, useState } from "react"
 import { Wrench, Settings, Search, Sparkles, HardHat, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Reveal } from "@/components/reveal"
 
 const services = [
     {
@@ -70,78 +71,90 @@ export function Services2() {
     }
 
     return (
-        <section id="services" className="bg-zinc-950 relative py-24">
-            <div className="container mx-auto px-4">
+        <section id="services" className="relative py-24 overflow-hidden">
+            <div className="container mx-auto px-6 md:px-12">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="inline-block px-4 py-2 bg-primary/20 text-primary text-sm font-semibold uppercase tracking-wider mb-4">
-                        What We Do
-                    </span>
-                    <h2 className="text-4xl md:text-6xl font-bold mt-4 mb-6 text-white uppercase tracking-tight">
-                        Our Services
-                    </h2>
-                    <p className="text-gray-400 text-lg md:text-xl leading-relaxed">
-                        From installation to emergency repairs, we&apos;ve got your garage doors and gates covered with
-                        championship-level service and expertise.
-                    </p>
+                    <Reveal width="100%">
+                        <span className="inline-block px-4 py-2 bg-primary/10 text-primary text-sm font-bold uppercase tracking-wider mb-4 rounded-full">
+                            What We Do
+                        </span>
+                        <h2 className="text-4xl md:text-6xl font-bold mt-4 mb-6 text-zinc-900 uppercase tracking-tight">
+                            Our <span className="text-primary">Services</span>
+                        </h2>
+                    </Reveal>
+                    <Reveal delay={200} width="100%">
+                        <p className="text-zinc-600 text-lg md:text-xl leading-relaxed font-medium">
+                            From installation to emergency repairs, we&apos;ve got your garage doors and gates covered with
+                            championship-level service and expertise.
+                        </p>
+                    </Reveal>
                 </div>
 
                 {/* Carousel Implementation */}
-                <div
-                    ref={scrollRef}
-                    onScroll={checkScrollButtons}
-                    className="flex gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8 -mx-4 px-4"
-                    style={{
-                        scrollbarWidth: "none",
-                        msOverflowStyle: "none",
-                    }}
-                >
-                    {services.map((service, index) => (
-                        <div
-                            key={index}
-                            className="flex-shrink-0 w-[85vw] md:w-[600px] snap-center bg-zinc-900 border border-zinc-800 shadow-2xl relative flex flex-col group overflow-hidden"
-                        >
-                            {/* Image Side */}
-                            <div className="relative w-full h-64 overflow-hidden">
-                                <img
-                                    src={service.image}
-                                    alt={service.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                />
-                                {/* Overlay */}
-                                <div className="absolute inset-0 bg-black/20" />
+                <Reveal delay={400} width="100%">
+                    <div
+                        ref={scrollRef}
+                        onScroll={checkScrollButtons}
+                        className="flex gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-12 -mx-4 px-4"
+                        style={{
+                            scrollbarWidth: "none",
+                            msOverflowStyle: "none",
+                        }}
+                    >
+                        {services.map((service, index) => (
+                            <div
+                                key={index}
+                                className="flex-shrink-0 w-[85vw] md:w-[600px] snap-center bg-white border border-white/50 shadow-xl rounded-2xl relative flex flex-col group overflow-hidden hover:shadow-2xl transition-all duration-300"
+                            >
+                                {/* Image Side */}
+                                <div className="relative w-full h-72 overflow-hidden">
+                                    <img
+                                        src={service.image}
+                                        alt={service.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                    {/* Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
 
-                                {/* Number badge */}
-                                <div className="absolute top-0 left-0 w-16 h-16 bg-zinc-950 flex items-center justify-center border-r border-b border-zinc-800">
-                                    <span className="text-xl font-bold text-white font-mono">
-                                        {String(index + 1).padStart(2, "0")}
-                                    </span>
+                                    {/* Number badge */}
+                                    <div className="absolute top-4 left-4 w-14 h-14 bg-white/90 backdrop-blur-md flex items-center justify-center rounded-xl shadow-lg">
+                                        <span className="text-2xl font-bold text-zinc-900 font-mono">
+                                            {String(index + 1).padStart(2, "0")}
+                                        </span>
+                                    </div>
+
+                                    {/* Icon Badge */}
+                                    <div className="absolute bottom-4 right-4 w-12 h-12 bg-primary flex items-center justify-center rounded-full shadow-lg transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                                        <service.icon className="w-6 h-6 text-white" />
+                                    </div>
+                                </div>
+
+                                {/* Content Side */}
+                                <div className="w-full p-8 md:p-10 flex flex-col bg-white flex-grow">
+                                    {/* Title */}
+                                    <h3 className="text-2xl md:text-3xl font-bold text-zinc-900 uppercase tracking-wide mb-4 group-hover:text-primary transition-colors">
+                                        {service.title}
+                                    </h3>
+
+                                    {/* Description */}
+                                    <p className="text-zinc-600 text-base md:text-lg leading-relaxed mb-8">
+                                        {service.description}
+                                    </p>
+
+                                    {/* CTA */}
+                                    <a href="tel:6049775156" className="self-start mt-auto inline-flex items-center text-primary font-bold uppercase tracking-wide hover:underline decoration-2 underline-offset-4 pointer-events-none">
+                                        Call Now <ChevronRight className="w-4 h-4 ml-1" />
+                                    </a>
+                                </div>
+
+                                <div className="h-2 bg-zinc-100 w-full">
+                                    <div className={`h-full ${service.color} w-0 group-hover:w-full transition-all duration-700 ease-out`} />
                                 </div>
                             </div>
-
-                            {/* Content Side */}
-                            <div className="w-full p-8 md:p-10 flex flex-col bg-zinc-900 border-t border-zinc-800 flex-grow">
-                                {/* Title */}
-                                <h3 className="text-2xl md:text-4xl font-bold text-white uppercase tracking-wide mb-4">
-                                    {service.title}
-                                </h3>
-
-                                {/* Description */}
-                                <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-8">
-                                    {service.description}
-                                </p>
-
-                                {/* CTA */}
-                                <a href="tel:6049775156" className="self-start mt-auto px-8 py-4 bg-zinc-950 border border-zinc-700 text-white font-bold uppercase tracking-wide hover:bg-primary hover:text-black hover:border-primary transition-all duration-300">
-                                    Call Now
-                                </a>
-                            </div>
-
-                            {/* Accent line */}
-                            <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                </Reveal>
 
                 {/* Bottom Navigation Buttons (Desktop) */}
                 <div className="hidden md:flex justify-end gap-4 mt-8">
@@ -150,7 +163,7 @@ export function Services2() {
                         size="icon"
                         onClick={() => scroll("left")}
                         disabled={!canScrollLeft}
-                        className="rounded-none border-zinc-700 text-white hover:bg-zinc-800 hover:text-white disabled:opacity-30 w-12 h-12 bg-zinc-900"
+                        className="rounded-full border-zinc-200 text-zinc-700 hover:bg-primary hover:text-white hover:border-primary disabled:opacity-30 w-12 h-12 bg-white shadow-sm"
                     >
                         <ChevronLeft className="w-6 h-6" />
                     </Button>
@@ -159,7 +172,7 @@ export function Services2() {
                         size="icon"
                         onClick={() => scroll("right")}
                         disabled={!canScrollRight}
-                        className="rounded-none border-zinc-700 text-white hover:bg-zinc-800 hover:text-white disabled:opacity-30 w-12 h-12 bg-zinc-900"
+                        className="rounded-full border-zinc-200 text-zinc-700 hover:bg-primary hover:text-white hover:border-primary disabled:opacity-30 w-12 h-12 bg-white shadow-sm"
                     >
                         <ChevronRight className="w-6 h-6" />
                     </Button>

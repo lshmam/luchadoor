@@ -1,39 +1,10 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Clock, Shield, Award, Wrench, Home, Zap } from "lucide-react"
+import { ArrowRight, Image as ImageIcon } from "lucide-react"
+import { Reveal } from "@/components/reveal"
 
-const stats = [
-    { value: 24, suffix: "/7", label: "Emergency Service" },
-    { value: 10, suffix: "+", label: "Years Experience" },
-    { value: 50, suffix: "+", label: "Projects Completed" },
-    { value: 100, suffix: "%", label: "Satisfaction Rate" },
-]
-
-const features = [
-    {
-        icon: Clock,
-        title: "24/7 Emergency Service",
-        description: "Round-the-clock availability for urgent repairs. We're always ready when you need us most.",
-    },
-    {
-        icon: Award,
-        title: "Expert Technicians",
-        description: "Skilled professionals with extensive training on all garage door brands and models.",
-    },
-    {
-        icon: Home,
-        title: "Residential & Commercial",
-        description: "From home garages to industrial loading docks, we handle properties of all sizes.",
-    },
-    {
-        icon: Zap,
-        title: "Fast Response Time",
-        description: "Quick arrival times and efficient service to minimize your downtime.",
-    },
-]
-
-function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
+function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
     const [count, setCount] = useState(0)
     const [hasAnimated, setHasAnimated] = useState(false)
     const ref = useRef<HTMLSpanElement>(null)
@@ -72,121 +43,123 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
     }, [target, hasAnimated])
 
     return (
-        <span ref={ref} className="text-4xl md:text-6xl font-bold text-white">
+        <span ref={ref} className="text-inherit">
             {count}
-            <span className="text-primary">{suffix}</span>
+            {suffix}
         </span>
     )
 }
 
 export function WhyChooseUsStats() {
     return (
-        <section className="py-12 md:py-24 overflow-hidden bg-zinc-950">
-            <div className="container mx-auto px-4">
+        <section className="py-20 md:py-32 bg-slate-950 relative overflow-hidden text-white">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+            </div>
+
+            <div className="container mx-auto px-6 md:px-12 relative z-10">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                    <span className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-none text-sm font-bold uppercase tracking-widest mb-4">
-                        <Shield className="w-4 h-4" />
-                        Why Choose Us
-                    </span>
-                    <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 md:mb-6 text-white uppercase tracking-tight">
-                        Championship-Level Service
-                    </h2>
-                    <p className="text-gray-400 text-base md:text-lg leading-relaxed">
-                        We bring the same dedication and intensity to every garage door project.
-                    </p>
-                </div>
-
-                {/* Stats Counter Bar */}
-                <div className="relative mb-16 md:mb-24">
-                    {/* Background glow */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 rounded-none blur-xl" />
-
-                    <div className="relative bg-zinc-900/80 backdrop-blur-sm border border-zinc-800 rounded-none p-8 md:p-12">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
-                            {stats.map((stat, index) => (
-                                <div
-                                    key={index}
-                                    className="text-center relative"
-                                >
-                                    <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-                                    <p className="text-gray-400 text-sm md:text-base mt-2 uppercase tracking-wider font-medium">
-                                        {stat.label}
-                                    </p>
-
-                                    {/* Divider line - hidden on last item and mobile */}
-                                    {index < stats.length - 1 && (
-                                        <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-16 w-px bg-zinc-700" />
-                                    )}
-                                </div>
-                            ))}
-                        </div>
+                <div className="flex flex-col lg:flex-row justify-between items-start mb-16 md:mb-24 gap-8">
+                    <div className="max-w-xl">
+                        <Reveal width="100%">
+                            <div className="text-sm font-medium text-slate-400 mb-4">Results</div>
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight">
+                                Numbers that speak for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">themselves</span>
+                            </h2>
+                        </Reveal>
+                    </div>
+                    <div className="max-w-md lg:mt-10">
+                        <Reveal delay={100} width="100%">
+                            <p className="text-slate-400 text-lg leading-relaxed mb-8">
+                                We've earned trust through consistent work and satisfied customers. These figures show what we deliver every single day.
+                            </p>
+                            <div className="flex items-center gap-4">
+                                <button className="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg font-medium transition-colors">
+                                    Learn
+                                </button>
+                                <button className="flex items-center gap-2 text-white font-medium hover:text-blue-400 transition-colors group">
+                                    Explore
+                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </button>
+                            </div>
+                        </Reveal>
                     </div>
                 </div>
 
-                {/* Feature List with Mascot */}
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Left: Mascot */}
-                    <div className="relative flex justify-center order-2 lg:order-1">
-                        {/* Glow effects */}
-                        <div className="absolute inset-0 bg-primary/10 rounded-full blur-[100px]" />
-                        <div className="absolute inset-0 bg-secondary/10 rounded-full blur-[80px] translate-x-10" />
-
-                        {/* Mascot Image */}
-                        <div className="relative">
-                            <img
-                                src="/images/mascot.png"
-                                alt="Luchadoor Mascot"
-                                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain drop-shadow-2xl"
-                            />
-
-                            {/* Floating badge */}
-                            <div className="absolute -top-4 -right-4 md:top-0 md:right-0 bg-secondary text-secondary-foreground px-4 py-2 rounded-none font-bold text-sm uppercase tracking-wide shadow-lg animate-bounce">
-                                #1 In Surrey
+                {/* Main Content Grid */}
+                <div className="grid lg:grid-cols-3 gap-6">
+                    {/* Column 1: Large Stat */}
+                    <Reveal width="100%" className="lg:h-full">
+                        <div className="bg-slate-900/50 border border-slate-800 p-8 md:p-12 rounded-3xl h-full flex flex-col justify-between min-h-[400px]">
+                            <div className="text-6xl md:text-7xl font-bold text-white">
+                                <AnimatedCounter target={2500} />
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold text-white mb-2">Doors installed and repaired</h3>
+                                <p className="text-slate-400 leading-relaxed">
+                                    Homes and businesses across the region rely on our work
+                                </p>
                             </div>
                         </div>
-                    </div>
+                    </Reveal>
 
-                    {/* Right: Feature List */}
-                    <div className="space-y-6 order-1 lg:order-2">
-                        {features.map((feature, index) => (
-                            <div
-                                key={index}
-                                className="group flex gap-5 p-5 rounded-none bg-zinc-900/50 border border-zinc-800 hover:border-primary/50 hover:bg-zinc-900 transition-all duration-300"
-                                style={{ animation: `fadeInRight 0.5s ease-out ${index * 0.1}s both` }}
-                            >
-                                {/* Icon */}
-                                <div className="flex-shrink-0 w-14 h-14 rounded-none bg-primary/20 flex items-center justify-center group-hover:bg-primary transition-colors">
-                                    <feature.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                    {/* Column 2: Image + Stat */}
+                    <div className="flex flex-col gap-6">
+                        <Reveal delay={100} width="100%">
+                            <div className="rounded-3xl aspect-[4/3] relative overflow-hidden group">
+                                <img
+                                    src="/luchadoor_images/Luchadoor/image0000001.JPG"
+                                    alt="Rolling steel door installation"
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
+                            </div>
+                        </Reveal>
+                        <Reveal delay={200} width="100%" className="flex-1">
+                            <div className="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl h-full flex flex-col justify-between min-h-[250px]">
+                                <div className="text-6xl md:text-7xl font-bold text-white">
+                                    <AnimatedCounter target={15} />
                                 </div>
-
-                                {/* Content */}
-                                <div className="flex-1">
-                                    <h3 className="text-lg md:text-xl font-bold text-white uppercase tracking-wide mb-2">
-                                        {feature.title}
-                                    </h3>
-                                    <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-                                        {feature.description}
+                                <div>
+                                    <h3 className="text-lg font-bold text-white mb-1">Years serving the community</h3>
+                                    <p className="text-slate-400 text-sm leading-relaxed">
+                                        Experience built on honest work and real relationships
                                     </p>
                                 </div>
                             </div>
-                        ))}
+                        </Reveal>
+                    </div>
+
+                    {/* Column 3: Stat + Image */}
+                    <div className="flex flex-col gap-6">
+                        <Reveal delay={200} width="100%" className="flex-1">
+                            <div className="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl h-full flex flex-col justify-between min-h-[250px]">
+                                <div className="text-6xl md:text-7xl font-bold text-white">
+                                    <AnimatedCounter target={98} suffix="%" />
+                                </div>
+                                <div>
+                                    <h3 className="text-lg font-bold text-white mb-1">Customer satisfaction rating</h3>
+                                    <p className="text-slate-400 text-sm leading-relaxed">
+                                        People come back because we do the job right
+                                    </p>
+                                </div>
+                            </div>
+                        </Reveal>
+                        <Reveal delay={300} width="100%">
+                            <div className="rounded-3xl aspect-[4/3] relative overflow-hidden group">
+                                <img
+                                    src="/luchadoor_images/Luchadoor/image0000071.JPG"
+                                    alt="Professional technician at work"
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
+                            </div>
+                        </Reveal>
                     </div>
                 </div>
             </div>
 
-            <style jsx>{`
-        @keyframes fadeInRight {
-          from {
-            opacity: 0;
-            transform: translateX(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-      `}</style>
+            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-blue-500/20 rounded-full blur-[128px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-purple-500/10 rounded-full blur-[128px] pointer-events-none" />
         </section>
     )
 }

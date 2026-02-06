@@ -11,7 +11,7 @@ import { Phone, Mail, MapPin, Clock, Send } from "lucide-react"
 export function Contact() {
   return (
     <section id="contact" className="py-24">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 md:px-12">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Info */}
           <div className="space-y-8">
@@ -90,7 +90,7 @@ export function Contact() {
             <h3 className="text-2xl font-bold mb-6 text-card-foreground uppercase tracking-wide">
               Request a Free Quote
             </h3>
-            <form action="https://formsubmit.co/luchadoor14@gmail.com" method="POST" className="space-y-6">
+            <form action="https://formspree.io/f/mykpqjga" method="POST" className="space-y-6">
               {/* Honeypot for spam protection */}
               <input type="text" name="_honey" className="hidden" />
 
@@ -105,6 +105,7 @@ export function Contact() {
                   id="name"
                   type="text"
                   name="name"
+                  autoComplete="name"
                   placeholder="John Doe"
                   required
                   className="bg-background"
@@ -122,6 +123,8 @@ export function Contact() {
                   id="email"
                   type="email"
                   name="email"
+                  autoComplete="email"
+                  spellCheck={false}
                   placeholder="john@example.com"
                   required
                   className="bg-background"
@@ -139,6 +142,8 @@ export function Contact() {
                   id="phone"
                   type="tel"
                   name="phone"
+                  autoComplete="tel"
+                  inputMode="tel"
                   placeholder="(604) 977-5156"
                   required
                   className="bg-background"
@@ -165,7 +170,8 @@ export function Contact() {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold uppercase tracking-wide"
+                className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold uppercase tracking-wide touch-manipulation"
+                style={{ touchAction: "manipulation" }}
               >
                 Send Message
                 <Send className="ml-2 w-5 h-5" />

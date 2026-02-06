@@ -3,6 +3,7 @@
 import { useRef, useState } from "react"
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Reveal } from "@/components/reveal"
 
 const testimonials = [
     {
@@ -58,32 +59,32 @@ const testimonials = [
 function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
     return (
         <div className="flex-shrink-0 w-[300px] md:w-[400px] mx-3">
-            <div className="relative overflow-hidden rounded-none bg-zinc-900 border border-zinc-800 p-6 h-full hover:border-primary/30 transition-colors duration-300">
+            <div className="relative overflow-hidden rounded-2xl bg-white border border-zinc-100 p-8 h-full shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                 {/* Quote Icon */}
-                <div className="absolute top-4 right-4 opacity-10">
-                    <Quote className="w-10 h-10 text-primary" />
+                <div className="absolute top-6 right-6 opacity-10">
+                    <Quote className="w-12 h-12 text-primary" />
                 </div>
 
                 {/* Rating */}
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-6">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-secondary fill-secondary" />
+                        <Star key={i} className="w-4 h-4 text-primary fill-primary" />
                     ))}
                 </div>
 
                 {/* Quote */}
-                <blockquote className="text-gray-300 leading-relaxed mb-6 text-sm">
+                <blockquote className="text-zinc-600 leading-relaxed mb-8 text-base font-medium italic">
                     &quot;{testimonial.quote}&quot;
                 </blockquote>
 
                 {/* Author */}
-                <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-none bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                        <span className="text-white font-bold text-xs">{testimonial.avatar}</span>
+                <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <span className="text-primary font-bold text-sm">{testimonial.avatar}</span>
                     </div>
                     <div>
-                        <h4 className="font-bold text-white text-sm">{testimonial.name}</h4>
-                        <p className="text-xs text-gray-500">{testimonial.position}</p>
+                        <h4 className="font-bold text-zinc-900 text-sm">{testimonial.name}</h4>
+                        <p className="text-xs text-zinc-500 font-medium uppercase tracking-wide">{testimonial.position}</p>
                     </div>
                 </div>
             </div>
@@ -119,115 +120,123 @@ export function Testimonials() {
     }
 
     return (
-        <section className="py-12 md:py-24 overflow-hidden bg-zinc-950">
-            {/* Dark rounded container - now full width */}
+        <section className="py-12 md:py-24 overflow-hidden relative">
+            {/* Cream/Light container */}
             <div className="py-12 overflow-hidden">
-                <div className="container mx-auto px-4">
+                <div className="container mx-auto px-6 md:px-12">
                     {/* Section Header */}
                     <div className="text-center max-w-3xl mx-auto mb-12 px-4 md:px-8">
-                        <span className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-none text-sm font-bold uppercase tracking-widest mb-4">
-                            <Star className="w-4 h-4" />
-                            Testimonials
-                        </span>
-                        <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white uppercase tracking-tight">
-                            What Our Clients Say
-                        </h2>
-                        <p className="text-gray-400 text-lg leading-relaxed">
-                            Don&apos;t just take our word for it. Here&apos;s what our satisfied customers have to say about their experience with Luchadoor.
-                        </p>
+                        <Reveal width="100%">
+                            <span className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold uppercase tracking-widest mb-4">
+                                <Star className="w-4 h-4" />
+                                Testimonials
+                            </span>
+                            <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-zinc-900 uppercase tracking-tight">
+                                What Our <span className="text-primary">Clients Say</span>
+                            </h2>
+                        </Reveal>
+                        <Reveal delay={200} width="100%">
+                            <p className="text-zinc-600 text-lg leading-relaxed font-medium">
+                                Don&apos;t just take our word for it. Here&apos;s what our satisfied customers have to say about their experience with Luchadoor.
+                            </p>
+                        </Reveal>
                     </div>
 
                     {/* Mobile: Swipeable Carousel */}
-                    <div className="md:hidden">
-                        {/* Swipeable Cards */}
-                        <div
-                            ref={scrollRef}
-                            onScroll={checkScrollButtons}
-                            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 pb-4"
-                            style={{
-                                scrollbarWidth: "none",
-                                msOverflowStyle: "none",
-                            }}
-                        >
-                            {testimonials.map((testimonial) => (
-                                <div
-                                    key={testimonial.id}
-                                    className="flex-shrink-0 w-[280px] snap-center"
-                                >
-                                    <div className="relative overflow-hidden rounded-none bg-zinc-900 border border-zinc-800 p-5 h-full">
-                                        {/* Rating */}
-                                        <div className="flex gap-1 mb-3">
-                                            {[...Array(testimonial.rating)].map((_, i) => (
-                                                <Star key={i} className="w-3 h-3 text-secondary fill-secondary" />
-                                            ))}
-                                        </div>
-
-                                        {/* Quote */}
-                                        <blockquote className="text-gray-300 leading-relaxed mb-4 text-xs line-clamp-4">
-                                            &quot;{testimonial.quote}&quot;
-                                        </blockquote>
-
-                                        {/* Author */}
-                                        <div className="flex items-center gap-2">
-                                            <div className="w-8 h-8 rounded-none bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                                                <span className="text-white font-bold text-[10px]">{testimonial.avatar}</span>
+                    <Reveal delay={400} width="100%">
+                        <div className="md:hidden">
+                            {/* Swipeable Cards */}
+                            <div
+                                ref={scrollRef}
+                                onScroll={checkScrollButtons}
+                                className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 pb-4"
+                                style={{
+                                    scrollbarWidth: "none",
+                                    msOverflowStyle: "none",
+                                }}
+                            >
+                                {testimonials.map((testimonial) => (
+                                    <div
+                                        key={testimonial.id}
+                                        className="flex-shrink-0 w-[280px] snap-center"
+                                    >
+                                        <div className="relative overflow-hidden rounded-2xl bg-white border border-zinc-100 p-5 h-full shadow-md">
+                                            {/* Rating */}
+                                            <div className="flex gap-1 mb-3">
+                                                {[...Array(testimonial.rating)].map((_, i) => (
+                                                    <Star key={i} className="w-3 h-3 text-primary fill-primary" />
+                                                ))}
                                             </div>
-                                            <div>
-                                                <h4 className="font-bold text-white text-xs">{testimonial.name}</h4>
-                                                <p className="text-[10px] text-gray-500">{testimonial.position}</p>
+
+                                            {/* Quote */}
+                                            <blockquote className="text-zinc-600 leading-relaxed mb-4 text-xs line-clamp-4">
+                                                &quot;{testimonial.quote}&quot;
+                                            </blockquote>
+
+                                            {/* Author */}
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                                                    <span className="text-primary font-bold text-[10px]">{testimonial.avatar}</span>
+                                                </div>
+                                                <div>
+                                                    <h4 className="font-bold text-zinc-900 text-xs">{testimonial.name}</h4>
+                                                    <p className="text-[10px] text-zinc-500">{testimonial.position}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                ))}
+                            </div>
 
-                        {/* Navigation Buttons (Bottom) */}
-                        <div className="flex justify-center gap-4 mt-6 px-4">
-                            <Button
-                                variant="outline"
-                                size="icon"
-                                onClick={() => scroll("left")}
-                                disabled={!canScrollLeft}
-                                className="rounded-none border-zinc-700 text-white hover:bg-zinc-800 hover:text-white disabled:opacity-30 h-10 w-10 bg-zinc-900"
-                            >
-                                <ChevronLeft className="w-5 h-5" />
-                            </Button>
-                            <Button
-                                variant="outline"
-                                size="icon"
-                                onClick={() => scroll("right")}
-                                disabled={!canScrollRight}
-                                className="rounded-none border-zinc-700 text-white hover:bg-zinc-800 hover:text-white disabled:opacity-30 h-10 w-10 bg-zinc-900"
-                            >
-                                <ChevronRight className="w-5 h-5" />
-                            </Button>
-                        </div>
+                            {/* Navigation Buttons (Bottom) */}
+                            <div className="flex justify-center gap-4 mt-6 px-4">
+                                <Button
+                                    variant="outline"
+                                    size="icon"
+                                    onClick={() => scroll("left")}
+                                    disabled={!canScrollLeft}
+                                    className="rounded-full border-zinc-200 text-zinc-700 hover:bg-primary hover:text-white disabled:opacity-30 h-10 w-10 bg-white shadow-sm"
+                                >
+                                    <ChevronLeft className="w-5 h-5" />
+                                </Button>
+                                <Button
+                                    variant="outline"
+                                    size="icon"
+                                    onClick={() => scroll("right")}
+                                    disabled={!canScrollRight}
+                                    className="rounded-full border-zinc-200 text-zinc-700 hover:bg-primary hover:text-white disabled:opacity-30 h-10 w-10 bg-white shadow-sm"
+                                >
+                                    <ChevronRight className="w-5 h-5" />
+                                </Button>
+                            </div>
 
-                        {/* Swipe hint */}
-                        <p className="text-center text-zinc-500 text-xs mt-2">
-                            ← Swipe to see more →
-                        </p>
-                    </div>
+                            {/* Swipe hint */}
+                            <p className="text-center text-zinc-400 text-xs mt-2">
+                                ← Swipe to see more →
+                            </p>
+                        </div>
+                    </Reveal>
 
                 </div>
             </div>
 
             {/* Desktop: Infinite Scrolling Marquee - Full Width */}
-            <div className="hidden md:block relative w-full">
-                {/* Gradient Fade Left */}
-                <div className="absolute left-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-r from-zinc-950 via-zinc-950/80 to-transparent z-10 pointer-events-none" />
+            <Reveal delay={400} width="100%">
+                <div className="hidden md:block relative w-full">
+                    {/* Gradient Fade Left */}
+                    <div className="absolute left-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-r from-[var(--background)] via-[var(--background)]/80 to-transparent z-10 pointer-events-none" />
 
-                {/* Gradient Fade Right */}
-                <div className="absolute right-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-l from-zinc-950 via-zinc-950/80 to-transparent z-10 pointer-events-none" />
+                    {/* Gradient Fade Right */}
+                    <div className="absolute right-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-l from-[var(--background)] via-[var(--background)]/80 to-transparent z-10 pointer-events-none" />
 
-                {/* Marquee Container */}
-                <div className="flex animate-marquee">
-                    {duplicatedTestimonials.map((testimonial, index) => (
-                        <TestimonialCard key={`${testimonial.id}-${index}`} testimonial={testimonial} />
-                    ))}
+                    {/* Marquee Container */}
+                    <div className="flex animate-marquee">
+                        {duplicatedTestimonials.map((testimonial, index) => (
+                            <TestimonialCard key={`${testimonial.id}-${index}`} testimonial={testimonial} />
+                        ))}
+                    </div>
                 </div>
-            </div>
+            </Reveal>
 
             <style jsx>{`
                 @keyframes marquee {

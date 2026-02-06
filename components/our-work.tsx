@@ -1,15 +1,16 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Reveal } from "@/components/reveal"
 
 const workItems = [
     {
         id: 1,
         title: "Rolling Steel Doors",
         subtitle: "Heavy-duty commercial and industrial roll-up doors for warehouses and storefronts",
-        image: "/images/rolling-steel-door.png",
+        image: "/luchadoor_images/Luchadoor/image0000001.JPG",
     },
     {
         id: 2,
@@ -21,7 +22,7 @@ const workItems = [
         id: 3,
         title: "Emergency Steel Doors",
         subtitle: "Fire-rated outdoor emergency exit doors built for safety and security",
-        image: "/images/emergency-steel-door.png",
+        image: "/luchadoor_images/Luchadoor/image0000011.JPG",
     },
     {
         id: 4,
@@ -50,6 +51,32 @@ export function OurWork() {
         }
     }
 
+    // Debounce scroll handler to avoid excessive layout reads
+    useEffect(() => {
+        const handleScroll = () => {
+            let timeoutId: NodeJS.Timeout
+            return () => {
+                clearTimeout(timeoutId)
+                timeoutId = setTimeout(checkScrollButtons, 100)
+            }
+        }
+
+        const debouncedHandler = handleScroll()
+        const element = scrollRef.current
+
+        if (element) {
+            element.addEventListener('scroll', debouncedHandler)
+            // Initial check
+            checkScrollButtons()
+        }
+
+        return () => {
+            if (element) {
+                element.removeEventListener('scroll', debouncedHandler)
+            }
+        }
+    }, [])
+
     const scroll = (direction: "left" | "right") => {
         if (scrollRef.current) {
             const scrollAmount = 350
@@ -62,75 +89,85 @@ export function OurWork() {
     }
 
     return (
-        <section className="py-12 md:py-20 bg-zinc-950" id="our-work">
-            <div className="container mx-auto px-4">
+        <section className="py-12 md:py-20 relative" id="our-work">
+            <div className="container mx-auto px-6 md:px-12">
                 {/* Section Header */}
                 <div className="text-center mb-12">
-                    <span className="inline-block px-4 py-2 bg-primary/20 text-primary rounded-none text-sm font-semibold uppercase tracking-wider mb-4">
-                        Portfolio
-                    </span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tight mb-4">
-                        Our Work
-                    </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-                        From industrial warehouses to commercial storefronts, we install and service all types of doors and access systems
-                    </p>
+                    <Reveal width="100%">
+                        <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-bold uppercase tracking-wider mb-4">
+                            Portfolio
+                        </span>
+                        <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 uppercase tracking-tight mb-4">
+                            Our <span className="text-primary">Work</span>
+                        </h2>
+                    </Reveal>
+                    <Reveal delay={200} width="100%">
+                        <p className="text-zinc-600 max-w-2xl mx-auto text-lg font-medium">
+                            From industrial warehouses to commercial storefronts, we install and service all types of doors and access systems
+                        </p>
+                    </Reveal>
                 </div>
 
                 {/* Carousel Navigation - Desktop */}
                 {/* Carousel */}
-                <div
-                    ref={scrollRef}
-                    onScroll={checkScrollButtons}
-                    className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4"
-                    style={{
-                        scrollbarWidth: "none",
-                        msOverflowStyle: "none",
-                    }}
-                >
-                    {workItems.map((item) => (
-                        <div
-                            key={item.id}
-                            className="flex-shrink-0 w-[340px] md:w-[600px] snap-center group cursor-pointer"
-                        >
-                            {/* Card */}
-                            <div className="relative overflow-hidden rounded-none bg-zinc-800 border border-zinc-700 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 h-full">
-                                {/* Image */}
-                                <div className="h-[350px] md:h-[400px] overflow-hidden relative">
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                    />
-                                    {/* Gradient Overlay */}
-                                    <div className="absolute inset-0 bg-black/20" />
-                                </div>
+                <Reveal delay={400} width="100%">
+                    <div
+                        ref={scrollRef}
+                        className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8 -mx-4 px-4 touch-manipulation"
+                        style={{
+                            scrollbarWidth: "none",
+                            msOverflowStyle: "none",
+                            touchAction: "manipulation",
+                        }}
+                    >
+                        {workItems.map((item) => (
+                            <div
+                                key={item.id}
+                                className="flex-shrink-0 w-[340px] md:w-[500px] snap-center group cursor-pointer"
+                            >
+                                {/* Card */}
+                                <div className="relative overflow-hidden rounded-2xl bg-white border border-white/50 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full">
+                                    {/* Image */}
+                                    <div className="h-[300px] md:h-[350px] overflow-hidden relative">
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            width={500}
+                                            height={350}
+                                            loading="lazy"
+                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        />
+                                        {/* Gradient Overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    </div>
 
-                                {/* Content */}
-                                <div className="p-4 md:p-6 pb-8 md:pb-10">
-                                    <h3 className="text-lg md:text-xl font-bold text-white uppercase tracking-wide mb-2 group-hover:text-primary transition-colors">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-zinc-300 text-sm md:text-base leading-relaxed line-clamp-2">
-                                        {item.subtitle}
-                                    </p>
-                                </div>
+                                    {/* Content */}
+                                    <div className="p-6 md:p-8">
+                                        <h3 className="text-xl font-bold text-zinc-900 uppercase tracking-wide mb-2 group-hover:text-primary transition-colors">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-zinc-500 text-sm md:text-base leading-relaxed line-clamp-2">
+                                            {item.subtitle}
+                                        </p>
+                                    </div>
 
-                                {/* Hover Accent Line */}
-                                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                                    {/* Hover Accent Line */}
+                                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                </Reveal>
 
                 {/* Carousel Navigation - Desktop (Moved to Bottom) */}
-                <div className="hidden md:flex justify-end gap-4 mt-8">
+                <div className="hidden md:flex justify-end gap-4 mt-4">
                     <Button
                         variant="outline"
                         size="icon"
                         onClick={() => scroll("left")}
                         disabled={!canScrollLeft}
-                        className="rounded-none border-zinc-700 text-white hover:bg-zinc-800 hover:text-white disabled:opacity-30 w-12 h-12 bg-zinc-900"
+                        aria-label="Previous"
+                        className="rounded-full border-zinc-200 text-zinc-700 hover:bg-primary hover:text-white hover:border-primary disabled:opacity-30 w-12 h-12 bg-white shadow-sm"
                     >
                         <ChevronLeft className="w-6 h-6" />
                     </Button>
@@ -139,7 +176,8 @@ export function OurWork() {
                         size="icon"
                         onClick={() => scroll("right")}
                         disabled={!canScrollRight}
-                        className="rounded-none border-zinc-700 text-white hover:bg-zinc-800 hover:text-white disabled:opacity-30 w-12 h-12 bg-zinc-900"
+                        aria-label="Next"
+                        className="rounded-full border-zinc-200 text-zinc-700 hover:bg-primary hover:text-white hover:border-primary disabled:opacity-30 w-12 h-12 bg-white shadow-sm"
                     >
                         <ChevronRight className="w-6 h-6" />
                     </Button>

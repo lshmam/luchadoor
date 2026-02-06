@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { Clock, Shield, Award, Wrench, Home, Zap } from "lucide-react"
+import { Reveal } from "@/components/reveal"
 
 const features = [
     {
@@ -68,51 +69,57 @@ export function WhyChooseUsRadial() {
 
     return (
         <section className="py-16 md:py-24 bg-zinc-950 overflow-hidden" ref={containerRef}>
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto px-6 md:px-12">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                    <span className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-bold uppercase tracking-widest mb-4">
-                        <Shield className="w-4 h-4" />
-                        Why Choose Us
-                    </span>
-                    <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 md:mb-6 text-white uppercase tracking-tight">
-                        Championship-Level Service
-                    </h2>
-                    <p className="text-gray-400 text-base md:text-lg leading-relaxed px-4">
-                        We bring the same dedication and intensity to every garage door project.
-                    </p>
+                    <Reveal width="100%">
+                        <span className="inline-flex items-center gap-2 bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-bold uppercase tracking-widest mb-4">
+                            <Shield className="w-4 h-4" />
+                            Why Choose Us
+                        </span>
+                        <h2 className="text-3xl md:text-5xl font-bold mt-4 mb-4 md:mb-6 text-white uppercase tracking-tight">
+                            Championship-Level Service
+                        </h2>
+                    </Reveal>
+                    <Reveal delay={200} width="100%">
+                        <p className="text-gray-400 text-base md:text-lg leading-relaxed px-4">
+                            We bring the same dedication and intensity to every garage door project.
+                        </p>
+                    </Reveal>
                 </div>
 
                 {/* Mobile Layout - Mascot + Grid */}
                 <div className="md:hidden">
                     {/* Mascot */}
-                    <div className="flex justify-center mb-8">
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl scale-125" />
-                            <img
-                                src="/images/mascot.png"
-                                alt="Luchadoor Mascot"
-                                className="relative w-48 h-48 object-contain drop-shadow-2xl"
-                            />
+                    <Reveal delay={400} width="100%">
+                        <div className="flex justify-center mb-8">
+                            <div className="relative">
+                                <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl scale-125" />
+                                <img
+                                    src="/images/mascot.png"
+                                    alt="Luchadoor Mascot"
+                                    className="relative w-48 h-48 object-contain drop-shadow-2xl"
+                                />
+                            </div>
                         </div>
-                    </div>
+                    </Reveal>
 
                     {/* Features Grid - 2 columns on mobile */}
                     <div className="grid grid-cols-2 gap-3">
                         {features.map((feature, index) => (
-                            <div
-                                key={index}
-                                className="bg-zinc-900/90 border border-zinc-800 rounded-xl p-4 hover:border-primary/50 transition-colors"
-                                style={{ animation: `fadeInUp 0.5s ease-out ${index * 0.1}s both` }}
-                            >
-                                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center mb-2">
-                                    <feature.icon className="w-5 h-5 text-primary" />
+                            <Reveal key={index} delay={index * 100} width="100%">
+                                <div
+                                    className="bg-zinc-900/90 border border-zinc-800 rounded-xl p-4 hover:border-primary/50 transition-colors"
+                                >
+                                    <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center mb-2">
+                                        <feature.icon className="w-5 h-5 text-primary" />
+                                    </div>
+                                    <span className="text-lg font-bold text-primary block">{feature.stat}</span>
+                                    <h3 className="text-xs font-bold text-white uppercase tracking-wide">
+                                        {feature.title}
+                                    </h3>
                                 </div>
-                                <span className="text-lg font-bold text-primary block">{feature.stat}</span>
-                                <h3 className="text-xs font-bold text-white uppercase tracking-wide">
-                                    {feature.title}
-                                </h3>
-                            </div>
+                            </Reveal>
                         ))}
                     </div>
                 </div>
@@ -190,17 +197,19 @@ export function WhyChooseUsRadial() {
 
                     {/* Center Hub - Mascot */}
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                        <div className="relative">
-                            {/* Glow effect */}
-                            <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl scale-150" />
+                        <Reveal width="100%">
+                            <div className="relative">
+                                {/* Glow effect */}
+                                <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl scale-150" />
 
-                            {/* Mascot Image */}
-                            <img
-                                src="/images/mascot.png"
-                                alt="Luchadoor Mascot"
-                                className="relative w-44 h-44 lg:w-56 lg:h-56 object-contain drop-shadow-2xl"
-                            />
-                        </div>
+                                {/* Mascot Image */}
+                                <img
+                                    src="/images/mascot.png"
+                                    alt="Luchadoor Mascot"
+                                    className="relative w-44 h-44 lg:w-56 lg:h-56 object-contain drop-shadow-2xl"
+                                />
+                            </div>
+                        </Reveal>
                     </div>
 
                     {/* Feature Cards - Positioned in a circle */}
@@ -218,24 +227,25 @@ export function WhyChooseUsRadial() {
                             <div
                                 key={index}
                                 className={`absolute ${positions[index]} z-10 transition-all duration-500 hover:scale-110`}
-                                style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both` }}
                             >
-                                <div className="group relative">
-                                    <div className="bg-zinc-900/90 backdrop-blur-sm border border-zinc-800 rounded-2xl p-5 w-40 lg:w-48 hover:border-primary/50 hover:bg-zinc-800/90 transition-all duration-300 shadow-xl">
-                                        <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-3 group-hover:bg-primary transition-colors">
-                                            <feature.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
+                                <Reveal delay={index * 100} width="100%">
+                                    <div className="group relative">
+                                        <div className="bg-zinc-900/90 backdrop-blur-sm border border-zinc-800 rounded-2xl p-5 w-40 lg:w-48 hover:border-primary/50 hover:bg-zinc-800/90 transition-all duration-300 shadow-xl">
+                                            <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-3 group-hover:bg-primary transition-colors">
+                                                <feature.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
+                                            </div>
+                                            <span className="text-2xl font-bold text-primary block mb-1">
+                                                {feature.stat}
+                                            </span>
+                                            <h3 className="text-sm font-bold text-white uppercase tracking-wide mb-1">
+                                                {feature.title}
+                                            </h3>
+                                            <p className="text-xs text-gray-500 leading-tight">
+                                                {feature.description}
+                                            </p>
                                         </div>
-                                        <span className="text-2xl font-bold text-primary block mb-1">
-                                            {feature.stat}
-                                        </span>
-                                        <h3 className="text-sm font-bold text-white uppercase tracking-wide mb-1">
-                                            {feature.title}
-                                        </h3>
-                                        <p className="text-xs text-gray-500 leading-tight">
-                                            {feature.description}
-                                        </p>
                                     </div>
-                                </div>
+                                </Reveal>
                             </div>
                         )
                     })}

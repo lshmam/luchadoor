@@ -1,34 +1,34 @@
 const galleryImages = [
   {
-    src: "/modern-sectional-garage-door-installation-white-pa.jpg",
-    alt: "Modern sectional garage door",
+    src: "/luchadoor_images/Luchadoor/image0000001.JPG",
+    alt: "Commercial rolling steel door installation",
   },
   {
-    src: "/carriage-style-wooden-garage-door-luxury-home.jpg",
-    alt: "Carriage style garage door",
+    src: "/luchadoor_images/Luchadoor/image0000011.JPG",
+    alt: "Navy blue emergency steel door with panic bar",
   },
   {
-    src: "/contemporary-glass-aluminum-garage-door-modern-arc.jpg",
-    alt: "Contemporary glass garage door",
+    src: "/luchadoor_images/Luchadoor/image0000021.JPG",
+    alt: "Fire-rated steel door installation",
   },
   {
-    src: "/automatic-driveway-gate-installation-iron-fence-re.jpg",
-    alt: "Automatic driveway gate",
+    src: "/luchadoor_images/Luchadoor/image0000031.JPG",
+    alt: "Industrial steel door with window",
   },
   {
-    src: "/garage-door-opener-motor-installation-ceiling-moun.jpg",
-    alt: "Garage door opener installation",
+    src: "/luchadoor_images/Luchadoor/image0000071.JPG",
+    alt: "Professional door installation work in progress",
   },
   {
-    src: "/double-car-garage-door-white-steel-panels-suburban.jpg",
-    alt: "Double car garage door",
+    src: "/luchadoor_images/Luchadoor/image0000051.JPG",
+    alt: "Workshop and door installation area",
   },
 ]
 
 export function Gallery() {
   return (
     <section id="gallery" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 md:px-12">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-primary font-bold uppercase tracking-widest text-sm">Our Work</span>

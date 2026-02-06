@@ -1,110 +1,66 @@
 "use client"
 
-import { useEffect, useRef } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Shield, Clock, Award, Phone } from "lucide-react"
+import { ArrowRight, Phone } from "lucide-react"
+import { Reveal } from "@/components/reveal"
 
 export function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    // Ensure video is muted (required for autoplay on iOS)
-    video.muted = true
-    video.setAttribute('muted', '')
-    video.setAttribute('playsinline', '')
-
-    // Set playback rate to 1.2x when video is ready
-    video.playbackRate = 1.2
-
-    // Force play on mobile
-    const playVideo = () => {
-      if (video.paused) {
-        video.play().catch(() => {
-          console.log("Autoplay prevented")
-        })
-      }
-    }
-
-    // Multiple attempts to play
-    playVideo()
-
-    // Try again after a short delay
-    const timer1 = setTimeout(playVideo, 100)
-    const timer2 = setTimeout(playVideo, 500)
-    const timer3 = setTimeout(playVideo, 1000)
-
-    // Also try on any user interaction
-    document.addEventListener("touchstart", playVideo, { once: true })
-    document.addEventListener("click", playVideo, { once: true })
-    document.addEventListener("scroll", playVideo, { once: true })
-
-    return () => {
-      clearTimeout(timer1)
-      clearTimeout(timer2)
-      clearTimeout(timer3)
-      document.removeEventListener("touchstart", playVideo)
-      document.removeEventListener("click", playVideo)
-      document.removeEventListener("scroll", playVideo)
-    }
-  }, [])
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
+    <section className="relative w-full h-[85vh] min-h-[600px] overflow-hidden flex items-center">
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          webkit-playsinline="true"
-          preload="auto"
-          className="w-full h-full object-cover"
-        >
-          <source src="/garage-hero-2.mp4" type="video/mp4" />
-        </video>
-        {/* Dark Overlay for Text Readability */}
-        {/* <div className="absolute inset-0 bg-black/60" /> */}
+        <img
+          src="/images/garage-hero-3.jpg"
+          alt="Garage Door Hero Background"
+          className="w-full h-full object-cover object-right"
+        />
+        {/* Professional Dark Overlay - Navy Tint */}
+        <div className="absolute inset-0 bg-slate-900/40 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent" />
       </div>
 
-      {/* Centered Content */}
-      <div className="container mx-auto px-4 relative z-20 text-center pt-20">
-        <div className="max-w-4xl mx-auto space-y-8">
-          {/* Headline */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white uppercase tracking-tight">
-            Garage Door Repair and Installation in Surrey
-          </h1>
+      {/* Content */}
+      <div className="container mx-auto px-6 md:px-12 relative z-20">
+        <div className="max-w-3xl">
+          <Reveal width="100%">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold leading-tight text-white mb-6 drop-shadow-md">
+              Professional <br />
+              Garage Door Service <br />
+              <span className="text-primary-foreground/90">When You Need It.</span>
+            </h1>
+          </Reveal>
 
-          {/* Description */}
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Professional installation, repair, and maintenance services in Vancouver & Surrey, BC.
-            We fight for your home&apos;s security with championship-level service.
-          </p>
+          <Reveal delay={100} width="100%">
+            <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl font-light leading-relaxed">
+              Expert installation, repair, and maintenance for residential and commercial properties in Surrey, BC.
+            </p>
+          </Reveal>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <a href="tel:6049775156">
-              <Button
-                size="lg"
-                className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold uppercase tracking-wide text-lg px-8 h-14"
-              >
-                Get Free Estimate
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </a>
-            <a
-              href="tel:6049775156"
-              className="inline-flex items-center justify-center gap-3 border-2 border-white text-white hover:bg-white hover:text-black font-bold uppercase tracking-wide text-lg px-8 h-14 rounded-none transition-colors"
-            >
-              <Phone className="w-5 h-5" />
-              604-977-5156
-            </a>
-          </div>
+          <Reveal delay={200} width="100%">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="tel:6049775156">
+                <Button
+                  size="lg"
+                  className="h-14 px-8 bg-primary hover:bg-primary/90 text-white font-semibold text-lg rounded-md shadow-lg transition-transform hover:-translate-y-0.5"
+                >
+                  Call Us Now
+                  <Phone className="ml-2 w-5 h-5" />
+                </Button>
+              </a>
+              <a href="#contact">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="h-14 px-8 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary font-semibold text-lg rounded-md backdrop-blur-sm transition-all"
+                >
+                  Get a Quote
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </a>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

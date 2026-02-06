@@ -1,4 +1,6 @@
-import { CheckCircle } from "lucide-react"
+import { CheckCircle, Shield } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Reveal } from "@/components/reveal"
 
 const features = [
   "Licensed and fully insured professionals",
@@ -11,57 +13,97 @@ const features = [
 
 export function About() {
   return (
-    <section id="about" className="py-24">
-      <div className="container mx-auto px-4">
+    <section id="about" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-6 md:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Image Side */}
-          <div className="relative">
-            <div className="relative aspect-[4/3] rounded-none overflow-hidden shadow-2xl">
-              <img
-                src="/images/ivan-garage.jpeg"
-                alt="Beautiful garage door installation"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Floating Stats Card */}
-            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-auto lg:-right-8 bg-primary text-primary-foreground p-6 rounded-none shadow-xl min-w-[200px]">
-              <div className="text-center">
-                <span className="text-xl font-bold block">Ivan Soto</span>
-                <span className="text-sm uppercase tracking-wide opacity-90">Owner and CEO</span>
-              </div>
-            </div>
-          </div>
-
           {/* Content Side */}
-          <div className="space-y-8">
-            <div>
-              <span className="text-primary font-bold uppercase tracking-widest text-sm">About Us</span>
-              <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-zinc-900 uppercase">
-                Fighting for Your Home&apos;s Security
+          <div className="space-y-8 relative z-10">
+            <Reveal width="100%">
+              <div className="inline-block">
+                <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-bold uppercase tracking-widest text-sm mb-6">
+                  <Shield className="w-4 h-4" />
+                  About Luchadoor
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 leading-tight uppercase">
+                Masters of the <span className="text-primary">Craft</span>
               </h2>
-              <p className="text-zinc-600 text-lg leading-relaxed">
-                At Luchadoor, we bring championship-level dedication to every garage door and gate project. Based in
-                Surrey, BC, our team of skilled technicians combines years of experience with a passion for quality
-                workmanship.
-              </p>
-            </div>
+            </Reveal>
 
-            <p className="text-zinc-600 leading-relaxed">
-              Whether you need a new garage door installation, emergency repairs, or routine maintenance, we approach
-              every job with the same intensity and commitment to excellence. Your satisfaction is our victory!
-            </p>
+            <Reveal delay={200} width="100%">
+              <p className="text-xl text-zinc-600 leading-relaxed font-medium">
+                Luchadoor isn't just a garage door company—we're a team of dedicated professionals fighting for the safety, security, and style of your home.
+              </p>
+              <p className="text-lg text-zinc-500 leading-relaxed mt-4">
+                Based in Surrey, BC, we've built our reputation on championship-level service, knockout quality, and uncompromised integrity. When you choose us, you're choosing a partner who won't tap out until the job is done right.
+              </p>
+            </Reveal>
 
             {/* Features List */}
-            <ul className="space-y-4">
+            <div className="grid sm:grid-cols-2 gap-6 pt-4">
               {features.map((feature, index) => (
-                <li key={index} className="flex items-center gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-zinc-900">{feature}</span>
-                </li>
+                <Reveal key={index} delay={300 + index * 100} width="100%">
+                  <div className="flex items-start gap-4 p-4 rounded-xl bg-white/50 border border-white shadow-sm hover:border-primary/20 hover:bg-white hover:shadow-lg transition-all duration-300">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors">
+                      <CheckCircle className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
+                    </div>
+                    <div>
+                      {/* Feature text from array */}
+                      <p className="text-base font-medium text-zinc-700">{feature}</p>
+                    </div>
+                  </div>
+                </Reveal>
               ))}
-            </ul>
+            </div>
+
+            <Reveal delay={600} width="100%">
+              <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                <a href="tel:6049775156">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg h-14 px-8 shadow-lg shadow-primary/20 rounded-full">
+                    Call Us Today
+                  </Button>
+                </a>
+              </div>
+            </Reveal>
           </div>
+
+          {/* Image Side */}
+          <Reveal delay={400} width="100%">
+            <div className="relative">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                <img
+                  src="/images/ivan-garage.jpeg"
+                  alt="Luchadoor professional at work"
+                  width={800}
+                  height={600}
+                  loading="lazy"
+                  className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
+                />
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-60" />
+
+                {/* Floating Stats Card */}
+                <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md p-6 rounded-xl shadow-xl border border-zinc-100 max-w-xs animate-float">
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                      <CheckCircle className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-zinc-500 font-bold uppercase tracking-wider">Project Success</p>
+                      <p className="text-2xl font-black text-zinc-900">100%</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-zinc-600 leading-snug">
+                    Our commitment to excellence ensures every installation meets the highest industry standards.
+                  </p>
+                </div>
+              </div>
+
+              {/* Decorative Elements */}
+              <div className="absolute -z-10 top-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+              <div className="absolute -z-10 -bottom-10 -left-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl" />
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

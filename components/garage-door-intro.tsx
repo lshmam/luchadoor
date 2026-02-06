@@ -5,8 +5,20 @@ import { useState, useEffect } from "react"
 export function GarageDoorIntro({ onComplete }: { onComplete?: () => void }) {
     const [isOpen, setIsOpen] = useState(false)
     const [isComplete, setIsComplete] = useState(false)
+    const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
     useEffect(() => {
+        // Check for reduced motion preference
+        const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+        setPrefersReducedMotion(mediaQuery.matches)
+
+        // If reduced motion is preferred, skip the animation
+        if (mediaQuery.matches) {
+            setIsComplete(true)
+            onComplete?.()
+            return
+        }
+
         // Start the door opening animation after a short delay
         const openTimer = setTimeout(() => {
             setIsOpen(true)
