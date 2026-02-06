@@ -21,7 +21,7 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 md:px-12 relative z-20">
+      <div className="container mx-auto px-6 md:px-12 relative z-20 pt-32">
         <div className="max-w-3xl">
           <Reveal width="100%">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold leading-tight text-white mb-6 drop-shadow-md">

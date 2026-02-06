@@ -25,13 +25,13 @@ export function Header() {
       isScrolled ? "pt-2" : "pt-4"
     )}>
       <div className={cn(
-        "rounded-full bg-white shadow-md border border-white/50 transition-all duration-300 mx-4 flex items-center justify-center md:justify-between px-4 md:px-6 relative",
-        isScrolled ? "w-[95%] max-w-7xl h-12" : "w-[95%] max-w-7xl h-14"
+        "rounded-full bg-white shadow-md border border-white/50 transition-all duration-300 mx-4 flex items-center justify-center md:justify-between px-4 md:px-8 relative",
+        isScrolled ? "w-[95%] max-w-7xl h-20" : "w-[95%] max-w-7xl h-24"
       )}>
         {/* Logo - Left Side */}
-        <Link href="/" className="flex items-center gap-2">
-          <img src="/images/mascot.png" alt="Mascot" className="w-24 h-24 rounded-full object-cover" />
-          <img src="/images/luchadoor-logo-nobg.png" alt="Luchadoor" className="h-16 md:h-20 w-auto object-cover" />
+        <Link href="/" className="flex items-center gap-3">
+          <img src="/images/mascot.png" alt="Mascot" className="w-28 h-28 rounded-full object-cover" />
+          <img src="/images/luchadoor-logo-nobg.png" alt="Luchadoor" className="h-20 md:h-24 w-auto object-cover" />
         </Link>
 
         {/* Desktop: Right Navigation & CTA */}
