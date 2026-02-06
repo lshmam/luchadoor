@@ -31,7 +31,7 @@ export function Header() {
         {/* Logo - Left Side */}
         <Link href="/" className="flex items-center gap-2 md:gap-3 pr-14 md:pr-0">
           <img src="/images/mascot.png" alt="Mascot" className="w-16 h-16 md:w-28 md:h-28 rounded-full object-cover" />
-          <img src="/images/luchadoor-logo-nobg.png" alt="Luchadoor" className="h-12 md:h-24 w-auto object-cover" />
+          <img src="/images/luchadoor-logo-nobg.png" alt="Luchadoor" className="h-16 md:h-24 w-auto object-cover" />
         </Link>
 
         {/* Desktop: Right Navigation & CTA */}
