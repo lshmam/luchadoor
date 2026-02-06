@@ -34,7 +34,7 @@ const workItems = [
         id: 5,
         title: "Dock Levelers",
         subtitle: "Hydraulic loading dock equipment for efficient warehouse operations",
-        image: "/images/dock-leveler.png",
+        image: "/luchadoor_images/Luchadoor/image0000051.JPG",
     },
 ]
 

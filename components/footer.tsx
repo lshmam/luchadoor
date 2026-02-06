@@ -11,7 +11,7 @@ export function Footer() {
             {/* Brand */}
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <div className="w-20 h-20 rounded-xl overflow-hidden bg-white/5 p-1">
+                <div className="w-28 h-28 rounded-xl overflow-hidden bg-white/5 p-1">
                   <img
                     src="/images/mascot.png"
                     alt="Luchadoor Mascot"
@@ -21,7 +21,7 @@ export function Footer() {
                 <img
                   src="/images/luchadoor-logo-nobg.png"
                   alt="Luchadoor"
-                  className="h-16 w-auto object-contain brightness-0 invert opacity-90"
+                  className="h-24 w-auto object-contain brightness-0 invert opacity-90"
                 />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed max-w-xs">

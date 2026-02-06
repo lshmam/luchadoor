@@ -105,6 +105,27 @@ export function About() {
             </div>
           </Reveal>
         </div>
+
+        {/* Mascot Section - Bottom of About */}
+        <Reveal delay={700} width="100%">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mt-16 pt-12 ">
+            <img
+              src="/images/mascot.png"
+              alt="Luchadoor Mascot"
+              className="w-72 h-72 md:w-96 md:h-96 object-contain"
+            />
+            <div className="text-center md:text-left max-w-md">
+              <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-zinc-800">
+                100% Satisfaction guaranteed when you pick
+              </p>
+              <img
+                src="/images/luchadoor-logo-nobg.png"
+                alt="Luchadoor Logo"
+                className="h-24 md:h-32 lg:h-40 w-auto object-contain mt-4 mx-auto md:mx-0"
+              />
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )
