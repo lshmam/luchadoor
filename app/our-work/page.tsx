@@ -14,6 +14,8 @@ const projectCategories = [
             "/luchadoor_images/Luchadoor/image0000001.JPG",
             "/luchadoor_images/Luchadoor/image0000021(1).JPG",
             "/luchadoor_images/Luchadoor/image0000001(2).JPG",
+            "/luchadoor_images/Luchadoor/image0000051(1).JPG",
+
         ]
     },
     {
@@ -30,7 +32,6 @@ const projectCategories = [
         description: "Complete loading dock solutions including levelers, seals, and high-speed industrial doors for warehouses and distribution centers.",
         images: [
             "/luchadoor_images/Luchadoor/image0000051.JPG",
-            "/luchadoor_images/Luchadoor/image0000051(1).JPG",
             "/luchadoor_images/Luchadoor/image0000001(1).JPG",
             "/luchadoor_images/Luchadoor/image0000001(1).JPG",
 
@@ -74,7 +75,9 @@ export default function OurWorkPage() {
 
                 {/* Hero Section - Image Grid */}
                 <section className="pt-24 pb-16 bg-zinc-950 relative overflow-hidden">
-                    <div className="container mx-auto px-6 md:px-12">
+                    {/* Left Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 to-transparent to-30% z-10 pointer-events-none" />
+                    <div className="container mx-auto px-6 md:px-12 relative z-20">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             <Reveal width="100%">
                                 <div>

@@ -17,7 +17,7 @@ export function Hero() {
         />
         {/* Professional Dark Overlay - Navy Tint */}
         <div className="absolute inset-0 bg-slate-900/40 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/50 to-transparent to-50%" />
       </div>
 
       {/* Content */}
