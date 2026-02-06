@@ -104,25 +104,16 @@ export function WhyChooseUsStats() {
                         </div>
                     </Reveal>
 
-                    {/* Column 2: Image + Stat */}
+                    {/* Column 2: Stat */}
                     <div className="flex flex-col gap-6">
-                        <Reveal delay={100} width="100%">
-                            <div className="rounded-3xl aspect-[4/3] relative overflow-hidden group">
-                                <img
-                                    src="/luchadoor_images/Luchadoor/image0000001.JPG"
-                                    alt="Rolling steel door installation"
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
-                            </div>
-                        </Reveal>
-                        <Reveal delay={200} width="100%" className="flex-1">
-                            <div className="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl h-full flex flex-col justify-between min-h-[250px]">
+                        <Reveal delay={100} width="100%" className="flex-1">
+                            <div className="bg-slate-900/50 border border-slate-800 p-8 md:p-12 rounded-3xl h-full flex flex-col justify-between min-h-[400px]">
                                 <div className="text-6xl md:text-7xl font-bold text-white">
                                     <AnimatedCounter target={15} />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold text-white mb-1">Years serving the community</h3>
-                                    <p className="text-slate-400 text-sm leading-relaxed">
+                                    <h3 className="text-xl font-bold text-white mb-2">Years serving the community</h3>
+                                    <p className="text-slate-400 leading-relaxed">
                                         Experience built on honest work and real relationships
                                     </p>
                                 </div>
@@ -130,28 +121,19 @@ export function WhyChooseUsStats() {
                         </Reveal>
                     </div>
 
-                    {/* Column 3: Stat + Image */}
+                    {/* Column 3: Stat */}
                     <div className="flex flex-col gap-6">
                         <Reveal delay={200} width="100%" className="flex-1">
-                            <div className="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl h-full flex flex-col justify-between min-h-[250px]">
+                            <div className="bg-slate-900/50 border border-slate-800 p-8 md:p-12 rounded-3xl h-full flex flex-col justify-between min-h-[400px]">
                                 <div className="text-6xl md:text-7xl font-bold text-white">
                                     <AnimatedCounter target={98} suffix="%" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold text-white mb-1">Customer satisfaction rating</h3>
-                                    <p className="text-slate-400 text-sm leading-relaxed">
+                                    <h3 className="text-xl font-bold text-white mb-2">Customer satisfaction rating</h3>
+                                    <p className="text-slate-400 leading-relaxed">
                                         People come back because we do the job right
                                     </p>
                                 </div>
-                            </div>
-                        </Reveal>
-                        <Reveal delay={300} width="100%">
-                            <div className="rounded-3xl aspect-[4/3] relative overflow-hidden group">
-                                <img
-                                    src="/luchadoor_images/Luchadoor/image0000071.JPG"
-                                    alt="Professional technician at work"
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                />
                             </div>
                         </Reveal>
                     </div>

@@ -25,7 +25,7 @@ export function Header() {
       isScrolled ? "pt-2" : "pt-4"
     )}>
       <div className={cn(
-        "rounded-full bg-white shadow-md border border-white/50 transition-all duration-300 mx-4 flex items-center justify-between px-4 md:px-6",
+        "rounded-full bg-white shadow-md border border-white/50 transition-all duration-300 mx-4 flex items-center justify-center md:justify-between px-4 md:px-6 relative",
         isScrolled ? "w-[95%] max-w-7xl h-12" : "w-[95%] max-w-7xl h-14"
       )}>
         {/* Logo - Left Side */}
@@ -48,7 +48,7 @@ export function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden p-2 text-zinc-900"
+          className="md:hidden p-2 text-zinc-900 absolute right-4"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

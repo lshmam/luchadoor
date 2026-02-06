@@ -13,7 +13,7 @@ export function Hero() {
         <img
           src="/images/garage-hero-3.jpg"
           alt="Garage Door Hero Background"
-          className="w-full h-full object-cover object-right"
+          className="w-full h-full object-cover object-[70%_center] md:object-center"
         />
         {/* Professional Dark Overlay - Navy Tint */}
         <div className="absolute inset-0 bg-slate-900/40 mix-blend-multiply" />
@@ -37,9 +37,9 @@ export function Hero() {
             </p>
           </Reveal>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <Reveal delay={200} width="100%">
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex justify-center md:justify-start">
               <a href="tel:6049775156">
                 <Button
                   size="lg"
@@ -47,16 +47,6 @@ export function Hero() {
                 >
                   Call Us Now
                   <Phone className="ml-2 w-5 h-5" />
-                </Button>
-              </a>
-              <a href="#contact">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="h-14 px-8 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary font-semibold text-lg rounded-md backdrop-blur-sm transition-all"
-                >
-                  Get a Quote
-                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </a>
             </div>
