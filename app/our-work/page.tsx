@@ -12,7 +12,6 @@ const projectCategories = [
         description: "Heavy-duty commercial and industrial roll-up doors for warehouses, storefronts, and distribution centers.",
         images: [
             "/luchadoor_images/Luchadoor/image0000001.JPG",
-            "/luchadoor_images/Luchadoor/image0000021(1).JPG",
             "/luchadoor_images/Luchadoor/image0000001(2).JPG",
             "/luchadoor_images/Luchadoor/image0000051(1).JPG",
 
