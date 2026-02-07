@@ -9,7 +9,7 @@ const services = [
         title: "Installation",
         description:
             "Professional installation of garage doors, gates, and access systems. We handle everything from residential to commercial projects.",
-        image: "/images/service-installation.png",
+        image: "/luchadoor_images/Luchadoor/garage-install.JPG",
         color: "bg-green-500",
     },
     {
@@ -17,7 +17,7 @@ const services = [
         title: "Repairs",
         description:
             "Fast and reliable repair services for springs, cables, panels, openers, and all mechanical components.",
-        image: "/images/service-repairs.png",
+        image: "/luchadoor_images/Luchadoor/garage-repair.jpeg",
         color: "bg-red-500",
     },
     {
