@@ -98,7 +98,7 @@ export function Footer() {
                     <MapPin className="w-4 h-4 text-blue-400" />
                   </div>
                   <span className="text-slate-400 text-sm font-medium leading-relaxed">
-                    10324 Whalley Blvd
+                    13460 111a Ave
                     <br />
                     Surrey, BC, Canada
                   </span>
