@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
+import { ChevronDown, ChevronUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -21,15 +21,15 @@ export function Header() {
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex justify-center",
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex flex-col items-center",
       isScrolled ? "pt-2" : "pt-4"
     )}>
       <div className={cn(
-        "rounded-full bg-white shadow-md border border-white/50 transition-all duration-300 mx-4 flex items-center justify-between px-4 md:px-8 relative",
+        "rounded-full bg-white shadow-md border border-white/50 transition-all duration-300 mx-4 flex items-center justify-center md:justify-between px-4 md:px-8 relative",
         isScrolled ? "w-[95%] max-w-7xl h-18 md:h-24" : "w-[95%] max-w-7xl h-16 md:h-28"
       )}>
-        {/* Logo - Left Side */}
-        <Link href="/" className="flex items-center gap-1 md:gap-3 pr-12 md:pr-0">
+        {/* Logo - Centered on Mobile, Left on Desktop */}
+        <Link href="/" className="flex items-center gap-1 md:gap-3">
           <img src="/images/mascot.png" alt="Mascot" className="w-14 h-18 md:w-24 md:h-24 rounded-full object-contain" />
           <img src="/images/luchadoor-logo-nobg.png" alt="Luchadoor" className="h-10 md:h-16 w-auto object-contain" />
         </Link>
@@ -45,19 +45,19 @@ export function Header() {
             </Button>
           </a>
         </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden p-2 text-zinc-900 absolute right-4"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
       </div>
+
+      {/* Mobile Chevron Toggle - Below Navbar */}
+      <button
+        className="md:hidden mt-2 p-2 bg-white rounded-full shadow-md border border-zinc-100 transition-all hover:shadow-lg"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        {isMenuOpen ? <ChevronUp className="w-5 h-5 text-primary" /> : <ChevronDown className="w-5 h-5 text-primary" />}
+      </button>
 
       {/* Mobile Navigation Dropdown */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-xl border border-zinc-100 p-4 flex flex-col gap-4 animate-in slide-in-from-top-2">
+        <div className="md:hidden mt-2 mx-4 w-[95%] bg-white rounded-2xl shadow-xl border border-zinc-100 p-4 flex flex-col gap-4 animate-in slide-in-from-top-2">
           <Link href="/services" className="text-lg font-bold text-zinc-800 py-2 border-b border-zinc-100" onClick={() => setIsMenuOpen(false)}>Services</Link>
           <Link href="/our-work" className="text-lg font-bold text-zinc-800 py-2 border-b border-zinc-100" onClick={() => setIsMenuOpen(false)}>Our Work</Link>
           <a href="tel:6049775156" className="w-full">
