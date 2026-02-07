@@ -26,12 +26,12 @@ export function Header() {
     )}>
       <div className={cn(
         "rounded-full bg-white shadow-md border border-white/50 transition-all duration-300 mx-4 flex items-center justify-between px-4 md:px-8 relative",
-        isScrolled ? "w-[95%] max-w-7xl h-20 md:h-24" : "w-[95%] max-w-7xl h-24 md:h-28"
+        isScrolled ? "w-[95%] max-w-7xl h-14 md:h-24" : "w-[95%] max-w-7xl h-16 md:h-28"
       )}>
         {/* Logo - Left Side */}
-        <Link href="/" className="flex items-center gap-1 md:gap-3 pr-20 md:pr-0">
-          <img src="/images/mascot.png" alt="Mascot" className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover" />
-          <img src="/images/luchadoor-logo-nobg.png" alt="Luchadoor" className="h-20 md:h-28 w-auto object-cover" />
+        <Link href="/" className="flex items-center gap-1 md:gap-3 pr-12 md:pr-0">
+          <img src="/images/mascot.png" alt="Mascot" className="w-14 h-14 md:w-32 md:h-32 rounded-full object-cover" />
+          <img src="/images/luchadoor-logo-nobg.png" alt="Luchadoor" className="h-10 md:h-28 w-auto object-cover" />
         </Link>
 
         {/* Desktop: Right Navigation & CTA */}
