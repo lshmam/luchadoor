@@ -16,7 +16,7 @@ const workItems = [
         id: 2,
         title: "Parking Gates",
         subtitle: "Automated barrier systems for parking facilities and access control",
-        image: "/images/parking-gate.png",
+        image: "/luchadoor_images/Luchadoor/parking-gate.JPG",
     },
     {
         id: 3,
