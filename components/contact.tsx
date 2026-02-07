@@ -60,7 +60,7 @@ export function Contact() {
                 <div>
                   <h3 className="font-bold text-foreground uppercase tracking-wide">Location</h3>
                   <p className="text-muted-foreground">
-                    10324 Whalley Blvd
+                    13460 111a Ave
                     <br />
                     Surrey, BC, Canada
                   </p>

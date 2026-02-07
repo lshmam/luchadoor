@@ -32,7 +32,7 @@ export function MapSection() {
                             width="100%"
                             height="100%"
                             id="gmap_canvas"
-                            src="https://maps.google.com/maps?q=10324%20Whalley%20Blvd,%20Surrey,%20BC,%20Canada&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                            src="https://maps.google.com/maps?q=13460%20111a%20Ave,%20Surrey,%20BC,%20Canada&t=&z=15&ie=UTF8&iwloc=&output=embed"
                             frameBorder="0"
                             scrolling="no"
                             marginHeight={0}
@@ -44,11 +44,11 @@ export function MapSection() {
                         <div className="absolute bottom-6 left-6 bg-zinc-950/90 backdrop-blur-sm p-6 border border-zinc-800 max-w-xs hidden md:block">
                             <h3 className="text-white font-bold uppercase tracking-wide mb-2">Luchadoor Headquarters</h3>
                             <p className="text-gray-400 text-sm mb-4">
-                                10324 Whalley Blvd<br />
+                                13460 111a Ave<br />
                                 Surrey, BC, Canada
                             </p>
                             <a
-                                href="https://maps.google.com/maps?q=10324%20Whalley%20Blvd,%20Surrey,%20BC,%20Canada"
+                                href="https://maps.google.com/maps?q=13460%20111a%20Ave,%20Surrey,%20BC,%20Canada"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-primary text-xs font-bold uppercase tracking-wider hover:underline"
