@@ -42,7 +42,6 @@ const fullGallery = [
     "/luchadoor_images/Luchadoor/image0000001(4).JPG",
     "/luchadoor_images/Luchadoor/image0000001(5).JPG",
     "/luchadoor_images/Luchadoor/image0000001(6).JPG",
-    "/luchadoor_images/Luchadoor/image0000011(2).JPG",
     "/luchadoor_images/Luchadoor/image0000011(3).JPG",
     "/luchadoor_images/Luchadoor/image0000011(4).JPG",
     "/luchadoor_images/Luchadoor/image0000021(2).JPG",
